@@ -1,0 +1,90 @@
+---
+title: El camino a la independencia digital
+layout: post
+category : Life
+tags : [life,creative]
+published: true
+---
+{% include JB/setup %}
+
+Este es el primero de una serie de posts que tienen como objetivo entender como podemos tomar el control de nuestra identidad digital y minimizar la dependencia de corporaciones para manejar nuestros contenidos.
+
+
+Con la tecnología tenemos a nuestro alcance herramientas y posibilidades maravillosas para ejercitar nuestros músculos creativos. Además podemos tener una conversación directa con nuestra audiencia. Sin intermediarios que distorsionen su mensaje. 
+
+Aunque es dificil darse cuenta de la revolución, pensemos algunas cosas que hace algunos años eran impensables:
+
+* Escribir en un blog que millones de personas puedan leer
+* Encontrar clientes para nuestros servicios en cualquier parte del mundo.
+* Los artistas ahora pueden saltarse a la discográfica y llegarle directamente a su público
+* Los emprendedores pueden trabajar en sus cuartos y crear algo que millones de personas utilicen.
+* Si alguien tiene una buena idea puede crear una campaña para recaudar fondos y hacerla realidad.
+
+## Nuestra habilidad de crear no debería depender de una corporación.
+
+Todo lo anterior es maravilloso, sin embargo debemos siempre tener presente que nuestro contenido es valioso y sin darnos cuenta podemos estar confiando en corporaciones para quienes la prioridad no sea mantenerlo seguro.
+
+Algunas preguntas  que nos ayudan a entender nuestra dependencia
+
+* Si Yahoo congela tu cuenta de Flickr que tan afectado te ves? Como puedes restaurar tu portafolio?
+
+* Si Google por alguna razón decide desactivar tu cuenta, que tanta información personal perderías? Que tan facil sería restarurarla?
+
+* Si decidieras desactivar tu cuenta de Facebook tienes otros medios para comunicarte con tus contactos cercanos?
+
+Lo ideal debería no depender para nada de estas plataformas. Facebook no debería ser el intermediario para compartir contenido con tus amigos, ni decidir cual amigo es mas relevante ni cual contenido es mas importante.
+
+
+## Nuestra identidad digital
+
+Que es la identidad digital?
+Porqué es importante?
+
+Todos tenemos una identidad digital, aunque por lo general no nos sentimos con el control de ella, y sentimos que es volatil, puesto que depende de los ajustes, nuevas funcionalidades agregadas y borradas que Google, Yahoo, Microsoft puedan realizar y que por lo general buscan maximizar sus ingresos.
+
+## Ejemplos de una identidad digital volatil
+
+* Si facebook eliminara tu página, no podrías comunicarte con tu audiencia (para empresas, grupos, hobbies). Tu audiencia no sabría donde encontrarte.
+
+* Si eliminas tu facebook tus contactos no sabrían donde ubicarte.
+
+* Perderías el contenido (mensajes, notas, imágenes) pues no cuentas con otro medio de distribución.
+
+## El primer medio donde publicas tu contenido habla de tus prioridades.
+
+Por lo general, el primer sitio donde publicamos el contenido nos indica cuales son nuestras prioridades.
+
+Ej de un procedimiento que genera una identidad volatil:
+
+* Mis fotos las subo primero a facebook y algunas veces me preocupo por almacenarlas en un medio seguro donde las pueda conservar
+
+## Pasos concretos para tener el control sobre la identidad digital
+
+* Ser dueño de tu propio dominio (ej www.tuNickName.com)
+* Publicar notas, escritos primero en tu propio sitio y luego en otras plataformas
+* Consolidar tu información personal y hacer un backup que tu puedas conservar, usar plataformas externas como una medida adicional pero no la única.
+
+
+## No esta bien ser ignorante 
+
+Hace unos años saber Word era esencial y no saberlo te ponía en desventajas sociales, laborales.
+
+Ahora también hay una serie de conocimientos que se deberían considerar requisitos para poderse desenvolver en internet. No saberlos es el primer paso para terminar siendo esclavo de servicios y corporaciones que pueden cambiar o desaparecer sin aviso y de paso tu contenido con ellas.
+
+### Mínimos 
+
+* Poder hacer backups de tu información. Crear discos (DVD's, CDs, etc) con tu información importante.
+
+* Poder transferir backups e información a unidades externas.
+
+### Deseables
+
+* Escribir un documento HTML
+* Tener fundamentos de diseño, teoría de colores.
+* Entender la importancia de la tipografía
+
+### Power users
+
+* Aprender GIT para poder manejar las versiones de tus contenidos
+* Crear tus propios scripts para manipular tus datos (por ej, hacer backups, crear mp3)
+* Configurar servidores propios y en la nube que presten los servicios de los cuales somos dependientes.
