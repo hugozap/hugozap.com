@@ -1,0 +1,67 @@
+body {
+  background: #040507 url(../img/backhomewide.jpg) repeat-x;
+  font-size: 16px;
+  line-height: 21px;
+}
+a {
+  color: #a2c8e8;
+}
+.container {
+  padding-bottom: 600px;
+}
+.home {
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.home .mainrow {
+  margin-top: 150px;
+}
+.home h2 {
+  font-size: 3.5em;
+  padding-bottom: 0.5em;
+  text-shadow: 2px 2px 2px #969696;
+}
+.home .projects {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.8em;
+  min-height: 250px;
+}
+.home .projects h2 {
+  color: #a2c8e8;
+}
+.home .about {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.8em;
+  min-height: 250px;
+}
+.home .about h2 {
+  color: #eaf03a;
+}
+.home .blog {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.8em;
+  min-height: 250px;
+}
+.home .blog h2 {
+  color: #82ef8f;
+}
+.imagecredit {
+  font-size: 0.8em;
+}
+.withbox {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.8em;
+  min-height: 250px;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>hugozap</title>
+		<link rel="stylesheet" href="tachyons.min.css">
+	</head>
+	<body>
+		<nav class="bt bb tc  center mt4 mb4">
+			<a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Home</a>
+			<a class="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" href="/portfolio">Blog</a>
+			<a class="f6 f5-l link bg-animate black-80 hover-bg-light-blue dib pa3 ph4-l" href="/shop">Open Source</a>
+			<a class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pa3 ph4-l" href="/about">About</a>
+			<a class="f6 f5-l link bg-animate black-80 hover-bg-light-yellow dib pa3 ph4-l" href="/contact">Contact</a>
+		</nav>
+
+
+			<div class="pa4">
+				<div class="post ">
+					<h1 class="f3 tl lh-title tracked mh4">Post Title here bla bla bla</h1>
+					<div class="content lh-copy f4 measure-wide">
+						Note: Although this was written with react in mind, it also applies to similar concepts like “behaviors” in Polymer. However implementation may be different and not that easy with other libraries.
+
+						High Order Components in a nutshell are just functions that receives a Component as argument and returns a new component with extended behavior. With them is possible to create new components by composing existing ones.
+
+					  <h2 class="f3">	What’s wrong with mixins? </h2>
+	                  <p>
+						Dan Abramov explains it well here: https://facebook.github.io/react/blog/2016/07/13/mixins-considered-harmful.html
+
+						Example, handling keydown events
+
+						Suppose you have an “overlay” mixin that handles a global keydown event and sets the state property active to false, so when the user presses ESC the active overlays (dropdowns, sidebars, modals) get hidden.
+
+						We will create an HOC that receives a component and handles the keydown event for a particular key. When that key is pressed the callback parameter is called passing the element instance as 1st parameter and the DOM event as the 2nd one:
+	                  </p>
+						ConnectGlobalKeyHandler.js:
+
+						export default (Component, key, cb) => {
+						return class  extends React.Component {
+						static propTypes = {
+						name: React.PropTypes.string,
+						};
+
+						constructor(props) {
+						super(props);
+						this.state = {
+
+						}
+						this.handleKeyDown = this.handleKeyDown.bind(this);
+						}
+
+						handleKeyDown(ev) {
+						if (ev.keyCode === key) {
+						cb(this, ev)
+						}
+						}
+
+						componentDidMount() {
+						document.addEventListener('keydown', this.handleKeyDown);
+						}
+
+						componentWillUnmount() {
+						document.removeEventListener('keydown', this.handleKeyDown);
+
+						}
+
+						render() {
+						return (
+						<Component {...this.props}/>
+						);
+						}
+						}
+
+						}
+						With that in place is easy to extend the behavior of an existing component: 
+					</div>
+				</div> 
+			</div>
+		<div class="post-list w-7-ns pa4">
+			<div class="year">
+				<h2 class="f6 tracked w-100 bg-black-80 white pa2 mv4"> 2017 </h2>
+				<div class="post f4 pointer dim mb2"> 
+					<a href="#" class="copy tracked link "> Migrate your mixins to High Order Components </a>
+					<span class="f6 db mv1 black-40">Septiembre 24</span>
+				</div><div class="post f4 pointer dim mb2"> 
+					<span class="copy tracked "> Functional CSS for your next project</span>
+					<span class="f6 db mv1 black-40">Septiembre 24</span>
+				</div>
+				<div class="post f4 pointer dim mb2"> 
+					<span class="copy tracked ">The simplest HTML presentation tool with only CSS using the (:target trick)</span>
+					<span class="f6 db">Septiembre 24</span>
+				</div>
+
+
+			</div>
+			<div class="year">
+				<h2 class="f6 tracked w-100 bg-black-80 white pa2 mv4"> 2017 </h2>
+				<div class="post f4 pointer dim mb2"> 
+					<a href="#" class="copy tracked link "> Migrate your mixins to High Order Components </a>
+					<span class="f6 db mv1 black-40">Septiembre 24</span>
+				</div><div class="post f4 pointer dim mb2"> 
+					<span class="copy tracked "> Functional CSS for your next project</span>
+					<span class="f6 db mv1 black-40">Septiembre 24</span>
+				</div>
+				<div class="post f4 pointer dim mb2"> 
+					<span class="copy tracked ">The simplest HTML presentation tool with only CSS using the (:target trick)</span>
+					<span class="f6 db">Septiembre 24</span>
+				</div>
+
+
+			</div>
+		</div> 
+	</body>
+</html>

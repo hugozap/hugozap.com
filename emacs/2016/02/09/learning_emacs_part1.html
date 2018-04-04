@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-517172-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-517172-9');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>Learning Emacs project [Part 1]</title>
+    
+    <meta name="author" content="Hugo Zapata">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/css/tachyons.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+    <nav class="bt bb tc  center mt4 mb4">
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Home</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" href="/archive.html">Blog</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pa3 ph4-l" href="/about">About</a>
+    </nav>
+
+    <article class="pa3 tc">
+
+      
+
+<style>
+  h1,h2,h3{font-weight: 400;}  
+
+.highlight {
+  padding: 1rem;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+  /* https://github.com/richleland/pygments-css/blob/master/monokai.css */
+.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
+
+<div class="w-80 mw7 dib">
+ <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2015/11/25/websockets-streams-realtime-boilerplate" title="Web sockets and streams (boilerplate)">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim green" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/emacs/2016/02/09/learning_emacs_part2" title="Learning Emacs project [Part 2]">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+
+
+  <div class="post">
+    <h1 class="f2 lh-title">Learning Emacs project [Part 1]</h1>
+    <div class="content lh-copy f4 tl">
+       
+<h2 id="why">Why</h2>
+
+<p>I will be logging my progress towards learning Emacs and replace Sublime Text as my main text editor. (Sublime is great, and recently it looks like work on it has resumed!)</p>
+
+<p>In the past I’ve tried to learn it but quickly lost the motivation (or just forgot about it) and just kept using Sublime Text. This time I’m doing it for the fun of learning a well tested and respected UNIX tool, the challenge of learning Common Lisp, investing in a tool that will be around X years in the future and as a personal challenge that involves overcoming the initial frustation of not being able to do basic things. Feeling like a noob.</p>
+
+<p>I considered Vim and may learn it in the future, however right know (not knowing any of the two) I’m more inclined to Common Lisp for customization purposes over Vimscript. Also, I’m interested in Org mode and I hope to get into that later.</p>
+
+<h2 id="goals">Goals</h2>
+
+<p>The main goal is to feel proficient with Emacs to the same level I’m with Sublime and more (Learning how to create plugins for it, which I haven’t done in Sublime either).</p>
+
+<p>This is a vague goal, so I wrote a list of questions/use cases I should be able to do with Emacs. I divided into “Essentials” and “Power features”. Learning all the essentials will put me at the same level of my Sublime Text knowledge.</p>
+
+<h2 id="essentials">Essentials</h2>
+<p>Files:</p>
+
+<ul>
+  <li>create</li>
+  <li>rename</li>
+  <li>delete</li>
+  <li>Switch between currently opened files</li>
+  <li>quickly locate a file under current directory/project</li>
+  <li>Manage projects?</li>
+</ul>
+
+<p>Layout:</p>
+
+<ul>
+  <li>Split panes (or just use tmux? )</li>
+  <li>File tree explorer</li>
+</ul>
+
+<p>Editor:</p>
+
+<ul>
+  <li>
+    <p>Select all text</p>
+  </li>
+  <li>
+    <p>Select current line*</p>
+  </li>
+  <li>Select current word*</li>
+  <li>Quickly move the cursor to some position, line, word, character*</li>
+  <li>Replace n word ocurrences (multiselect and replace)*</li>
+  <li>Copy and paste formatted (keeping indentation)*</li>
+  <li>Select a “square” portion of thext and copy/paste it*</li>
+  <li>Add bookmarks to some line number*</li>
+  <li>Quickly switch between bookmarks*</li>
+  <li>Clear bookmarks*</li>
+  <li>manage snippets*</li>
+  <li>Navigate to symbols (classes, functions…)*</li>
+  <li>Have multiple “buffers” in clipboard, selective paste*</li>
+</ul>
+
+<p>Plugins:</p>
+
+<ul>
+  <li>Install a plugin*</li>
+  <li>Remove a plugin*</li>
+  <li>Change plugin bindings*</li>
+  <li>Solve key binding conflicts*</li>
+  <li>Disable a plugin/enable*</li>
+</ul>
+
+<p>Processes:</p>
+
+<ul>
+  <li>Run commands*</li>
+  <li>Run a command everytime a file is saved*</li>
+</ul>
+
+<h2 id="advanced">Advanced</h2>
+<ul>
+  <li>Creating a plugin*</li>
+  <li>Distribute a plugin*</li>
+</ul>
+
+<p>I hope to document most of this journey in case there’s somebody in a similar position.</p>
+
+
+    </div>
+  </div> 
+
+
+  <section class="published tr">
+    
+    <h4 class="dib">Published</h4>
+    <div class="date dib"><span>09 February 2016</span>
+    </div>
+
+  </section>
+
+  <hr/>
+    <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2015/11/25/websockets-streams-realtime-boilerplate" title="Web sockets and streams (boilerplate)">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim black" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/emacs/2016/02/09/learning_emacs_part2" title="Learning Emacs project [Part 2]">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+  
+   
+
+  <hr/>
+  
+
+    <section class="tags flex mt2 pv2 pr2">
+      <h4 class="black-80 ma0 pv2">Tags</h4>
+      <ul class="list ma0 w-100 tl">
+      
+      
+
+
+  
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#emacs-ref">emacs <span>2</span></a></li>
+    
+  
+
+
+
+      </ul>
+    </section>
+
+    
+</div>
+
+
+
+    </article>
+    <hr/>
+  </body>
+</html>
+

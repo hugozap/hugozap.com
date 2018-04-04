@@ -1,0 +1,86 @@
+
+html{
+	font-size: 100%;
+}
+body {
+font-family: 'Trebuchet MS', sans-serif;
+background:#fff url('decoration1.png') no-repeat 100% 0
+font-family: 'PT Sans', Trebuchet Ms, Arial;
+}
+
+h1,h2,h3,h4{
+		font-family: 'Noto Sans', sans-serif;
+		margin-bottom: 0.5em;
+}
+
+li{
+	list-style-type: none;
+}
+
+.post li{
+	list-style-type: disc;;
+}
+
+h1{
+	color:#ff7e79;
+	font-size: 1.5em;
+}
+
+h2{
+	color:#ff9300;
+	font-size: 1.3em;
+}
+h3{
+	font-size: 1.2em;
+}
+h4{
+	font-size: 1.1em;
+}
+
+.brand{
+	font-size: 3em;
+	line-height: 24.1px;
+	font-family: 'PT Sans', Trebuchet Ms, Arial;
+}
+p,a,li,span,.post,.post p,.post a,.post span{
+	font-size: 18px;
+	line-height: 24.1px;
+	font-family: 'PT Sans', Trebuchet Ms, Arial;
+}
+.container{
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.headernav{
+	margin-top: 1.2em;
+}
+.navigation{
+	margin-top: 1.8em;
+	margin-left: 0;
+	text-align: left
+}
+.navigation li{
+	display:inline;
+	list-style-type:none; 
+	padding-left:1em;
+	margin-left:1em;
+	border-left:1px solid #ccc
+}
+
+.navigation li.active a{
+	color:#ff7e79;
+}
+.navigation li a{
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 1.5em;
+}
+
+.content{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color:rgba(255,255,255,0.8)
+}
+

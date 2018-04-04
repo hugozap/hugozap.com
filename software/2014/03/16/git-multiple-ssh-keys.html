@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-517172-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-517172-9');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>(Learn log) Use multiple ssh keys with git</title>
+    
+    <meta name="author" content="Hugo Zapata">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/css/tachyons.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+    <nav class="bt bb tc  center mt4 mb4">
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Home</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" href="/archive.html">Blog</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pa3 ph4-l" href="/about">About</a>
+    </nav>
+
+    <article class="pa3 tc">
+
+      
+
+<style>
+  h1,h2,h3{font-weight: 400;}  
+
+.highlight {
+  padding: 1rem;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+  /* https://github.com/richleland/pygments-css/blob/master/monokai.css */
+.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
+
+<div class="w-80 mw7 dib">
+ <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2014/01/11/knockoutjs-bootstrap-datepicker-custom-binding" title="KnockoutJS bindings for Bootstrap Date and time pickers.">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim green" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/gamedev/2014/03/22/coronasdk-focus-effect" title="Focus effect with CoronaSDK">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+
+
+  <div class="post">
+    <h1 class="f2 lh-title">(Learn log) Use multiple ssh keys with git</h1>
+    <div class="content lh-copy f4 tl">
+       
+<p>I needed to create multiple ssh keys with github/ bitbucket accounts.</p>
+
+<p>The steps i followed :</p>
+
+<ol>
+  <li>Create ~/.ssh/config file</li>
+  <li>
+    <p>Generate multiple identities (one for bitbucketwork, one for bitbucketpersonal)</p>
+
+    <p>ssh-keygen -f ~/.ssh/bitbucketwork -C “bitbucketwork”
+ repeat for bitbucketpersonal</p>
+  </li>
+  <li>
+    <p>Create a host entry for each identity</p>
+
+    <p>Host bitbucketwork
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/workdid
+ Host bitbucketpersonal
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/personalid</p>
+  </li>
+  <li>Change the git remote to use the correct alias of your identity</li>
+</ol>
+
+<p>For example, i have a work repository, to make git use the work identity</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Before:
+
+git@bitbucket.org:accountname/reponame.git
+
+After:
+git@bitbucketwork:accountname/reponame.git
+</code></pre></div></div>
+
+<p>Where bitbucketwork is one of the Host alias previously created</p>
+
+<ol>
+  <li>
+    <p>Paste the public key in the bitbucket settings</p>
+
+    <p>pbcopy &lt; ~/.ssh/id_rsa.pub</p>
+  </li>
+  <li>
+    <p>Add the key(s) to the ssh agent with :</p>
+
+    <p>ssh-add ~/.ssh/work</p>
+
+    <p>( Note: Add to .bash_profile, otherwise you will  have to add the key everytime you open a terminal )</p>
+  </li>
+</ol>
+
+<h3 id="references">References</h3>
+
+<p>[https://gist.github.com/jexchan/2351996]
+[https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168]</p>
+
+
+    </div>
+  </div> 
+
+
+  <section class="published tr">
+    
+    <h4 class="dib">Published</h4>
+    <div class="date dib"><span>16 March 2014</span>
+    </div>
+
+  </section>
+
+  <hr/>
+    <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2014/01/11/knockoutjs-bootstrap-datepicker-custom-binding" title="KnockoutJS bindings for Bootstrap Date and time pickers.">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim black" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/gamedev/2014/03/22/coronasdk-focus-effect" title="Focus effect with CoronaSDK">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+  
+   
+
+  <hr/>
+  
+
+    <section class="tags flex mt2 pv2 pr2">
+      <h4 class="black-80 ma0 pv2">Tags</h4>
+      <ul class="list ma0 w-100 tl">
+      
+      
+
+
+  
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#learning_log-ref">learning_log <span>2</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#git-ref">git <span>3</span></a></li>
+    
+  
+
+
+
+      </ul>
+    </section>
+
+    
+</div>
+
+
+
+    </article>
+    <hr/>
+  </body>
+</html>
+

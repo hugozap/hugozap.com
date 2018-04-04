@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tarde lluviosa</title>
+</head>
+<body>
+
+
+<h1>PATHS</h1>
+
+<svg width="502px" height="400px" viewBox="0 0 502 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Path 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <path class='casa' d="M153.277344,377.445312 C153.277344,377.445312 95.203125,402.445312 95.203125,338.179687 C95.203125,273.914062 98.2460938,195.550781 98.2460938,195.550781 C98.2460938,195.550781 18.5820313,209.394531 9.5703125,192.417969 C0.55859375,175.441406 109.707034,10.7578124 172.476565,10.7578124 C193.618048,10.7578124 218.998267,12.6843454 250.487516,10.7578123 C312.490549,6.96442576 387.715899,3.13947459 427.644519,44.6328131 C487.851537,107.199219 491.929688,155.160156 491.929688,155.160156 L403.949219,155.507813 C403.949219,155.507813 453.136731,346.976566 401.164063,351.109375 C382.877297,352.563518 377.619567,377.074376 362.019545,383.218756 C333.282871,394.537269 297.11561,389.722658 275.050781,389.722656 C241.007815,389.722653 153.277344,377.445312 153.277344,377.445312 Z" id="Path-1" stroke="#BB3333" stroke-width="17" stroke-dasharray='200 1000' fill="#0CAA41" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>
+
+<script type='text/javascript' src='jquery.js'></script>
+<script type="text/javascript" src='velocity.min.js'></script>
+<script type="text/javascript">
+	
+var svg = document.getElementsByTagName('svg')[0];
+var path = svg.querySelector('.casa');
+var l = path.getTotalLength();
+
+path.setAttributeNS(null,'stroke-dasharray',l);
+$(path).velocity({
+  'strokeDashoffset':l
+},{duration:4000, loop:true});
+
+</script>
+
+<p class="author">Brain_Surface_Gyri.SVG: James.mcd.nz
+derivative work: Hguiney (talk) 
+<a href="http://commons.wikimedia.org/wiki/File:Human-brain.SVG">wikimedia link</a> </p>
+</body>
+</html>

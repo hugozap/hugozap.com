@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-517172-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-517172-9');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>Simulations are fun!</title>
+    
+    <meta name="author" content="Hugo Zapata">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/css/tachyons.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+    <nav class="bt bb tc  center mt4 mb4">
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Home</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" href="/archive.html">Blog</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pa3 ph4-l" href="/about">About</a>
+    </nav>
+
+    <article class="pa3 tc">
+
+      
+
+<style>
+  h1,h2,h3{font-weight: 400;}  
+
+.highlight {
+  padding: 1rem;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+  /* https://github.com/richleland/pygments-css/blob/master/monokai.css */
+.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
+
+<div class="w-80 mw7 dib">
+ <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2017/08/10/rethinking-accessibi" title="Rethinking Accessibility">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim green" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/software/2018/01/03/slides-of-my-talk-sv" title="Slides of my talk SVG and React ( ReactJS Tokyo December 2017 )">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+
+
+  <div class="post">
+    <h1 class="f2 lh-title">Simulations are fun!</h1>
+    <div class="content lh-copy f4 tl">
+       
+<p>Inspired by Tokyo, I’ve been experimenting with different techniques to simulate a city and its people. There’s been a lot of challenges and it has 
+been a great excercise.</p>
+
+<ul>
+  <li><a href="http://tokyosim000001.surge.sh/">View v000000.1 - B&amp;W </a></li>
+  <li><a href="http://tokyosim-v00000002.surge.sh/">View v000000.2 - Some colors, people using portals</a></li>
+</ul>
+
+<h2 id="using-a-type-system-for-javascript">Using a type system for JavaScript</h2>
+
+<p>For the first prototype version I used plain JavaScript. I reached a point where not having types was causing some pain. Especially as each world entity has properties that I had to remember. Different entities shared some properties. For example Person and Floor have both positions (x,y) , Floor and Train have both an array of Persons.</p>
+
+<p>As things were getting more complex adding a type system was needed. I didn’t want to spend a lot of time on setup so I went with Flow. After a few hours refactoring the code, the cognitive load was lower again and I could keep focusing on the next challenge.</p>
+
+<h2 id="svg-vs-canvas-vs-webgl-renderer">SVG vs canvas vs webgl renderer</h2>
+
+<p>I started using SVG and d3.js, this combination is usually used to create charts. I modeled the city as a list of data entites and d3 has a lot of utilities to make it easier to create visualizations with it. The problem with SVG for this use cases is that one has to store the SVG internal nodes to update only those (re creating the SVG would be very expensive). First prototype version woks ok , but I knew that it was time to switch to a more clean approach. Currently I’m working on the canvas renderer (using p5.js)</p>
+
+<h2 id="portals">Portals</h2>
+
+<p>One of the interesting challenges I had to solve was moving one person from one place to another. I have a list of Places and when the entity gets closer to a certain point, it needs to be transfered to other place ( For example, from one building floor to another, or from the building 1st floor to the street)</p>
+
+<p>The solution to this, was to introduce the concept of “Portals”. Each portal connects 2 places at specific points (x, y). I created an interface IPortal with all the portal properties. So far I have 2 types of portals:</p>
+
+<ul>
+  <li>Escalators (from floor to floor )</li>
+  <li>Building entrance ( from floor to street )</li>
+</ul>
+
+<h2 id="end-goal">End goal</h2>
+
+<p>I’m working on the rule engine and new renderer now. It started as a personal excercise but I see how it can be used to create some fun 2d things with it.
+Watching the world entities go from one place to another is fun and designing/debugging has been a great brain workout so I plan to keep adding some features and release derivative products, maybe just small demos/games.</p>
+
+
+    </div>
+  </div> 
+
+
+  <section class="published tr">
+    
+    <h4 class="dib">Published</h4>
+    <div class="date dib"><span>03 January 2018</span>
+    </div>
+
+  </section>
+
+  <hr/>
+    <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2017/08/10/rethinking-accessibi" title="Rethinking Accessibility">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim black" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/software/2018/01/03/slides-of-my-talk-sv" title="Slides of my talk SVG and React ( ReactJS Tokyo December 2017 )">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+  
+   
+
+  <hr/>
+  
+
+    <section class="tags flex mt2 pv2 pr2">
+      <h4 class="black-80 ma0 pv2">Tags</h4>
+      <ul class="list ma0 w-100 tl">
+      
+      
+
+
+  
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#d3-ref">d3 <span>2</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#svg-ref">svg <span>5</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#graphics-ref">graphics <span>5</span></a></li>
+    
+  
+
+
+
+      </ul>
+    </section>
+
+    
+</div>
+
+
+
+    </article>
+    <hr/>
+  </body>
+</html>
+

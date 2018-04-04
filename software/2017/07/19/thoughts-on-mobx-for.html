@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-517172-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-517172-9');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>Thoughts on MobX for large projects</title>
+    
+    <meta name="author" content="Hugo Zapata">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/css/tachyons.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+    <nav class="bt bb tc  center mt4 mb4">
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Home</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" href="/archive.html">Blog</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pa3 ph4-l" href="/about">About</a>
+    </nav>
+
+    <article class="pa3 tc">
+
+      
+
+<style>
+  h1,h2,h3{font-weight: 400;}  
+
+.highlight {
+  padding: 1rem;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+  /* https://github.com/richleland/pygments-css/blob/master/monokai.css */
+.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
+
+<div class="w-80 mw7 dib">
+ <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2017/06/27/accessible-workshops" title="Accessible Presentations">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim green" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/software/2017/08/10/rethinking-accessibi" title="Rethinking Accessibility">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+
+
+  <div class="post">
+    <h1 class="f2 lh-title">Thoughts on MobX for large projects</h1>
+    <div class="content lh-copy f4 tl">
+       
+<p>[WIP]</p>
+
+<h1 id="some-things-i-learned-about-mobx">Some Things I Learned about MobX</h1>
+
+<p>I’ve been working with MobX for a while and these are some
+of the lessons I’ve learned. Some of them are personal
+preferences. I feel there’s still a lot of exploration to do before
+standard patterns emerge that answer the question of how to structure the application state with mobx.</p>
+
+<p><em>Note:</em> There are some libraries out there that help to structure the stores. In this post I’m interested in exploring solutions with plain mobx before introducing more concepts and dependencies.</p>
+
+<h2 id="split-ui-and-application-state">Split UI and Application State?</h2>
+
+<p>When learning mobx I found a recommendation somewhere on
+having a store for UI related stuff and another for 
+application model stuff. This sounds good in theory, 
+however as both UI and App stores started growing some issues appeared:</p>
+
+<p>Properties in the UI state may belong to different logical groups, so
+having them in the same artifact (The UIState mobx store) didn’t feel good,
+when working on a feature, I’m not interested in UI state properties that belong to another feature and scanning
+the file looking for them was annoying.</p>
+
+<p>Based on the previous reflection, I realized that the distinction of UI state vs App State was not being helpful for the project. A mobx store is an application artifact and everything there has to do with the UI, so instead of having a separated store for UI things, we now have 1 store per logical unit. In our case we chose subsystems like authentication,search,admin etc, but I guess this depends on the nature of the project.</p>
+
+<h2 id="domain-logic-on-mobx-stores">Domain logic on mobx Stores</h2>
+
+<p>With computed fields, some logic can be included in the mobx stores. It’s easy to start adding domain logic there, however I don’t think this is a good idea. Mobx stores are just an mechanism to update the view in a smart way, but they are a technical artifact. Domain model rules should not have anything to do with mobx terminology.</p>
+
+<p>A better approach is to have the business rules in another module that nows nothing about mobx. From the mobx store, it’s easy to have a computed field that delegates the calculation to the domain logic module(s).</p>
+
+<p>Testing the domain rules is easier if they are separated from the mobx terminology.</p>
+
+<h2 id="how-to-structure-a-store">How to structure a store?</h2>
+
+<p>For complex UI’s the stores can get pretty messy and navigating them can be tricky. A mix of properties, computed fields and actions can turn into spaguetti. A practical solution to this problems include:</p>
+
+<ul>
+  <li>
+    <p>If using a single file per store, group properties, actions and computed fields (Some people may prefer to group them by logical concerns)</p>
+  </li>
+  <li>
+    <p>Move actions to a separated file: With this approach, the mobx store gets splitted into multiple files</p>
+
+    <p>An example stores structure:</p>
+
+    <ul>
+      <li>search(Search Store folder)
+        <ul>
+          <li>store.js (properties are declared there, actions are imported here)</li>
+          <li>actions.js (extract the actions into a separate file)</li>
+          <li>computed.js (Worthy if there’s a lot of computed fields)</li>
+        </ul>
+      </li>
+      <li>users (Users Store folder)
+        <ul>
+          <li>store.js</li>
+          <li>actions.js</li>
+          <li>computed.js</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Structuring stores this way has the benefit of making it easy to locate things. When working in a feature
+we can jump quickly to the related properties or actions of the feature/subsystem we are working on ignoring
+everything else.</p>
+
+<h2 id="tldr">TLDR</h2>
+
+<ul>
+  <li>
+    <p>Everything in the mobx store is related to the UI so group by logical units (subsystems, entities, use cases) instead of UI vs App State.</p>
+  </li>
+  <li>Place domain logic in plain JS modules (that now nothing of MobX terminology) and import them from your stores</li>
+  <li>Experiment with different Store layouts. Optimize for maintenability.</li>
+</ul>
+
+
+    </div>
+  </div> 
+
+
+  <section class="published tr">
+    
+    <h4 class="dib">Published</h4>
+    <div class="date dib"><span>19 July 2017</span>
+    </div>
+
+  </section>
+
+  <hr/>
+    <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2017/06/27/accessible-workshops" title="Accessible Presentations">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim black" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/software/2017/08/10/rethinking-accessibi" title="Rethinking Accessibility">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+  
+   
+
+  <hr/>
+  
+
+    <section class="tags flex mt2 pv2 pr2">
+      <h4 class="black-80 ma0 pv2">Tags</h4>
+      <ul class="list ma0 w-100 tl">
+      
+      
+
+
+  
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#mobx-ref">mobx <span>1</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#react-ref">react <span>7</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#frontend-ref">frontend <span>5</span></a></li>
+    
+  
+
+
+
+      </ul>
+    </section>
+
+    
+</div>
+
+
+
+    </article>
+    <hr/>
+  </body>
+</html>
+

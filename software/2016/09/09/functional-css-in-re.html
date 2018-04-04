@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-517172-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-517172-9');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>Functional CSS for your next project</title>
+    
+    <meta name="author" content="Hugo Zapata">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/css/tachyons.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+    <nav class="bt bb tc  center mt4 mb4">
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Home</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" href="/archive.html">Blog</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pa3 ph4-l" href="/about">About</a>
+    </nav>
+
+    <article class="pa3 tc">
+
+      
+
+<style>
+  h1,h2,h3{font-weight: 400;}  
+
+.highlight {
+  padding: 1rem;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+  /* https://github.com/richleland/pygments-css/blob/master/monokai.css */
+.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
+
+<div class="w-80 mw7 dib">
+ <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2016/09/05/web-components-as-re" title="Web Components as React leaf nodes">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim green" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/software/2016/09/25/migrate-your-mixins" title="Migrate your mixins to High Order Components">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+
+
+  <div class="post">
+    <h1 class="f2 lh-title">Functional CSS for your next project</h1>
+    <div class="content lh-copy f4 tl">
+       
+<h2 id="whats-functional-css">What’s functional CSS?</h2>
+
+<p>Functional CSS is an alternative approach that you can use to define the visual properties and styles of your Web site. It’s not about new technologies or libraries, but a set of principles like:</p>
+
+<ul>
+  <li>Write the least amount of CSS stylesheets.</li>
+  <li>Use small units to compose your interfaces. These are defined as single purpose CSS classses (e.g w-100 means width:100%)</li>
+  <li>Focus on composability and avoid the cascade in CSS</li>
+</ul>
+
+<p>The idea is that you can create most of your layouts without creating custom classes. Instead you use small units (defined as single purpose classes) that do one thing only and when applied to an element exerts the desired change.</p>
+
+<p>E.g</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dib ph1 w-50 bg-blue"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+<p>In this case we are using the following css atoms:</p>
+
+<ul>
+  <li>dib: display: inline-block</li>
+  <li>ph1: set horizontal padding to one of our predefined scale values (for consistency)</li>
+  <li>w-50: set the width to 50%</li>
+  <li>bg-blue: set background to blue</li>
+</ul>
+
+<h2 id="whats-wrong-with-traditional-css-approach">What’s wrong with traditional CSS approach?</h2>
+
+<p>If you are not familiar with this approach you may be thinking:</p>
+
+<ul>
+  <li>That’s not semantic.</li>
+  <li>I could easily create a class that groups those declarations.</li>
+  <li>the html class will grow.</li>
+</ul>
+
+<p>Regarding ‘semantics’, the problem is that traditional css thinking implies that semantics relates to the business problem, but that’s different from visual semantics. When working with html you are already working with the view, so it’s ok to decorate your elements with small classes that define a visual behavior.</p>
+
+<h2 id="how-a-traditional-css-evolves-until-it-implodes">How a traditional CSS evolves until it implodes</h2>
+
+<ul>
+  <li>project starts with a clean css</li>
+  <li>devs add classes that represent the application model (not the visual model) like ‘user-details, payment-form, company-info1, company-info2, etc…’</li>
+  <li>devs decide that they want to avoid rule duplication so they will create parent classes e.g panel-details, panel-details-sub, base-form</li>
+  <li>The project grows and things start to require their own rules. Sometimes they look really similar but just override a couple of things, other times just a few rules are shared and the rest is overrided.</li>
+  <li>devs keep creating custom rules targetting the specific elements and overriding them e.g #new-person-details, #customerabc-form, etc.</li>
+  <li>project keeps growing and devs keep adding classess, sometimes overriding declarations.</li>
+  <li>At some point, because the different possible overrides, it’s not easy to change a base class without breaking something else, so the CSS class race starts:  Override properties with !important and adding classess at the bottom of the file.</li>
+  <li>When a change is required, nobody touches previous declarations anymore and just add a new class that overrides what’s needed.</li>
+</ul>
+
+<p>It’s not easy to avoid the previous scenario with the traditional CSS best practices. Check the custom css files of some popular sites and you will see that. Other problems:</p>
+
+<ul>
+  <li>It’s not easy to optimize, with all the overrides the confidence to change something is lost.</li>
+</ul>
+
+<h2 id="compose-your-ui-from-small-units">Compose your UI from small units</h2>
+
+<p>By using the functional approach I’ve found the iteration is faster because we are working directly with the element we want to change. If I see an element declared as</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"pa2 f4 absolute top-0 w-100 w-25-ns"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>It’s easy to infer how the component will behave. In this case the element will have a padding value of –second-value-in-default-scale, a font size equal to –fourth-value-in-scale, it’ll have absolute positioning,  it’s top value will be 0 and it’s width equal to 100%. Also w-25-ns means it will have a width = 25% if the screen is not small, that’s great we are even specifying responsive behavior conditions. Check  the [tachyons] components for more examples.</p>
+
+<p>Working this way requires a different mindset and may feel weird at the beginning but when you get familiar with the small unit classes (atoms) you will enjoy composing your UI’s. also, it’s fun.</p>
+
+<p>Note: Tachyions has a predefined set of distances, font sizes, margins, widths that were created for consistency and proportion but can be changed easily. I’ve found the defaults will get you far. In any case avoid using magic numbers for css values.</p>
+
+<h2 id="about-duplication">About duplication</h2>
+
+<p>With this approach the class attribute can be grow a lot. I don’t think that’s a big deal,  we are using a the same atoms frequently so they will appear a lot on our html. That’s a small tradeoff but the benefit is much more important, you can now see the markup and have a better idea of how elements will look.</p>
+
+
+    </div>
+  </div> 
+
+
+  <section class="published tr">
+    
+    <h4 class="dib">Published</h4>
+    <div class="date dib"><span>09 September 2016</span>
+    </div>
+
+  </section>
+
+  <hr/>
+    <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2016/09/05/web-components-as-re" title="Web Components as React leaf nodes">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim black" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/software/2016/09/25/migrate-your-mixins" title="Migrate your mixins to High Order Components">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+  
+   
+
+  <hr/>
+  
+
+    <section class="tags flex mt2 pv2 pr2">
+      <h4 class="black-80 ma0 pv2">Tags</h4>
+      <ul class="list ma0 w-100 tl">
+      
+      
+
+
+  
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#web-ref">web <span>8</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#css-ref">css <span>3</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#tachyons-ref">tachyons <span>1</span></a></li>
+    
+  
+
+
+
+      </ul>
+    </section>
+
+    
+</div>
+
+
+
+    </article>
+    <hr/>
+  </body>
+</html>
+

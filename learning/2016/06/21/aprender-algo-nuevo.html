@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-517172-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-517172-9');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>Aprender algo nuevo [Parte 1]</title>
+    
+    <meta name="author" content="Hugo Zapata">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/css/tachyons.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+    <nav class="bt bb tc  center mt4 mb4">
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l" href="/">Home</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-green dib pa3 ph4-l" href="/archive.html">Blog</a>
+      <a class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pa3 ph4-l" href="/about">About</a>
+    </nav>
+
+    <article class="pa3 tc">
+
+      
+
+<style>
+  h1,h2,h3{font-weight: 400;}  
+
+.highlight {
+  padding: 1rem;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+  /* https://github.com/richleland/pygments-css/blob/master/monokai.css */
+.highlight .hll { background-color: #49483e }
+.highlight  { background: #272822; color: #f8f8f2 }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .ch { color: #75715e } /* Comment.Hashbang */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cpf { color: #75715e } /* Comment.PreprocFile */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .gd { color: #f92672 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gi { color: #a6e22e } /* Generic.Inserted */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #75715e } /* Generic.Subheading */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mb { color: #ae81ff } /* Literal.Number.Bin */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sa { color: #e6db74 } /* Literal.String.Affix */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .dl { color: #e6db74 } /* Literal.String.Delimiter */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #a6e22e } /* Name.Function.Magic */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .vm { color: #f8f8f2 } /* Name.Variable.Magic */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
+
+<div class="w-80 mw7 dib">
+ <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2016/06/02/quickly-create-a-jek" title="Quickly create a jekyll post and start editing">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim green" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/random/2016/07/05/identidad" title="Identidad y creación">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+
+
+  <div class="post">
+    <h1 class="f2 lh-title">Aprender algo nuevo [Parte 1]</h1>
+    <div class="content lh-copy f4 tl">
+       
+<h3 id="introducción">Introducción</h3>
+
+<p>Con frecuencia estoy buscando pequeños ajustes a mi forma de abordar la tarea de aprender algo nuevo. Algunos experimentos han funcionado mejor que otros pero en general me considero bueno para aprender temas nuevos con rapidez, y esto ha sido de gran utilidad para temas laborales, y otros de la vida.</p>
+
+<p>A continuación presento algunas ideas que pueden ser de utilidad a quien quiera aprender algo. No soy especialista en aprendizaje, es un tema que me interesa y los argumentos que presento parten de mis experiencias personales.</p>
+
+<h3 id="síntomas-de-errores-en-nuestro-proceso-de-aprendizaje">Síntomas de errores en nuestro proceso de aprendizaje.</h3>
+
+<p>Los síntomas de que algo falla en nuestro proceso de aprendizaje:</p>
+
+<ul>
+  <li>Perder la motivación muy rápido</li>
+  <li>Sentir frustración y desistir por sentirnos abrumados</li>
+  <li>Cuestionamiento de nuestras habilidades</li>
+  <li>Mucho tiempo invertido estudiando materiales pero al hacer una evaluación interna honesta sentimos que estamos avanzando muy poco</li>
+</ul>
+
+<h3 id="tipo-de-contenido-y-estrategia-para-aprender">Tipo de contenido y estrategia para aprender</h3>
+
+<p>Antes de aprender algo hay que diferenciar el tipo de contenido, pues la naturaleza del contenido y del tema a aprender nos da pistas sobre cual puede ser la mejor estrategia para abordar el tema.</p>
+
+<p>Por ejemplo, si queremos estudiar y  entender la obra de un escritor nuestra estrategia posiblemente sea diferente a la que usaríamos si estamos estudiando un tema científico o estamos aprendiendo a manejar un programa de computador.</p>
+
+<p>La obra de un autor puede ser abordada de diferentes maneras, podemos leer un libro que nos guste y después retroceder hasta llegar a sus primeras obras e ir creandonos un mapa mental de como fue evolucionando su estilo. Las primeras obras de un escritor tal vez no sean de buena calidad, y por ello algunas personas pueden empezar con sus obras más populares para no perder la motivación. Para otros puede ser mejor aprender en orden cronológico aunque eso les implique estudiar material de menor calidad, sin embargo tienen la paciencia para ello. Depende mucho la motivación, capacidad de mantener la atención y esto varía. A algunos les gusta saber todos los detalles, otros son orientados a objetivos específicos.</p>
+
+<p>Otro tipo de contenidos no ofrecen la flexibilidad del ejemplo anterior, particulármente material científico, matemáticas, programación. Son áreas de conocimiento donde es requisito aprender primero las bases antes de poder entender conceptos de mayor nivel. Sin embargo esto no quiere decir que la estrategia de aprendizaje tenga que ser la misma. Siempre hay espacio para ajustarla según el perfil de la persona. La manera como se abordan los fundamentos puede ser también personalizada, pero de alguna manera hay que aprenderlos para poder seguir construyendo nuestro mapa de conocimiento mental.</p>
+
+<p>Por ejemplo:</p>
+
+<p>Algunas personas aprenden matemáticas haciendo ejercicios y se sienten agusto con conceptos abstractos
+Otras personas necesitan ver primero la posible aplicación y no se sienten cómodos solo con abstracciones que nada tienen que ver con su realidad.</p>
+
+<h2 id="lectura-en-varias-pasadas">Lectura en varias pasadas</h2>
+
+<p>Para ciertos temas, es posible realizar varias lecturas del material de principio a fín. Una primera lectura rápida donde obviamos los detalles que no entendemos y donde el objetivo es formarnos una idea de lo que nos espera. Esta primera lectura nos brinda información útil como:</p>
+
+<ul>
+  <li>Tenemos una idea de cómo se clasifica el tema en  categorías generales (los capítulos del libro)</li>
+  <li>Nos familiarizamos con la terminología ( aunque no la entendamos )</li>
+  <li>Nos damos cuenta de las características del contenido ( es visual? técnico? párrafos extensos o compilación de hechos cortos?)</li>
+</ul>
+
+<p>Una lectura inicial puede ser valiosa para ajustar nuestras expectativas frente al material. Nos podemos dar cuenta que sólo nos interesa estudiar una fracción del material o que primero debemos consultar otras fuentes.</p>
+
+<p>La lectura en varias pasadas puede ser algo incómoda para quienes sienten la necesidad de entender todo muy bien antes de continuar, pero tiene beneficios ya que el conocimiento no siempre se construye en el orden sugerido por el autor. Cada libro es interpretación de los hechos y está atado a la manera de pensar y aprender del autor, que no necesariamente sea compatible con nuestra manera de aprender. Por ello no debemos desistir tan rápido cuando el material en frente nuestro parezca tedioso. Puede servir consultar otra fuente y tal vez nos daremos cuenta que el problema no era el tema sino la forma en que estaba explicado.</p>
+
+<p>… Parte 2 próximamente …</p>
+
+
+    </div>
+  </div> 
+
+
+  <section class="published tr">
+    
+    <h4 class="dib">Published</h4>
+    <div class="date dib"><span>21 June 2016</span>
+    </div>
+
+  </section>
+
+  <hr/>
+    <section class="pagination tc">
+      <ul class="list tl pa0 dib">
+      
+        <li class="prev dib br bw1 pr2 b--black"><a class="link dim black" href="/software/2016/06/02/quickly-create-a-jek" title="Quickly create a jekyll post and start editing">&larr; Previous</a></li>
+      
+        <li class="dib br bw1 pr2"><a class="link dim black" href="/archive.html">Archive</a></li>
+      
+        <li class="next dib"><a class="link dim black" href="/random/2016/07/05/identidad" title="Identidad y creación">Next &rarr;</a></li>
+      
+      </ul>
+    </section>
+
+  
+   
+
+  <hr/>
+  
+
+    <section class="tags flex mt2 pv2 pr2">
+      <h4 class="black-80 ma0 pv2">Tags</h4>
+      <ul class="list ma0 w-100 tl">
+      
+      
+
+
+  
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#learning-ref">learning <span>1</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#life-ref">life <span>5</span></a></li>
+     
+    	<li class="dib mh2 white bg-white ba bw2 b--black br2 pa2"><a class="link black-80 dim" href="/tags.html#mindset-ref">mindset <span>1</span></a></li>
+    
+  
+
+
+
+      </ul>
+    </section>
+
+    
+</div>
+
+
+
+    </article>
+    <hr/>
+  </body>
+</html>
+
