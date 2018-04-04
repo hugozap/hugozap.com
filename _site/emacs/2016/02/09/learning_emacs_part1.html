@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Learning Emacs project [Part 1] | hugozap</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Learning Emacs project [Part 1]" />
+<meta name="author" content="hugozap" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="hugozap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-02-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"hugozap"},"@type":"BlogPosting","url":"/emacs/2016/02/09/learning_emacs_part1.html","headline":"Learning Emacs project [Part 1]","dateModified":"2016-02-09T00:00:00-05:00","datePublished":"2016-02-09T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/emacs/2016/02/09/learning_emacs_part1.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="hugozap" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">hugozap</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Learning Emacs project [Part 1]</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-02-09T00:00:00-05:00" itemprop="datePublished">Feb 9, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<h2 id="why">Why</h2>
+
+<p>I will be logging my progress towards learning Emacs and replace Sublime Text as my main text editor. (Sublime is great, and recently it looks like work on it has resumed!)</p>
+
+<p>In the past I&#8217;ve tried to learn it but quickly lost the motivation (or just forgot about it) and just kept using Sublime Text. This time I&#8217;m doing it for the fun of learning a well tested and respected UNIX tool, the challenge of learning Common Lisp, investing in a tool that will be around X years in the future and as a personal challenge that involves overcoming the initial frustation of not being able to do basic things. Feeling like a noob.</p>
+
+<p>I considered Vim and may learn it in the future, however right know (not knowing any of the two) I&#8217;m more inclined to Common Lisp for customization purposes over Vimscript. Also, I&#8217;m interested in Org mode and I hope to get into that later.</p>
+
+<h2 id="goals">Goals</h2>
+
+<p>The main goal is to feel proficient with Emacs to the same level I&#8217;m with Sublime and more (Learning how to create plugins for it, which I haven&#8217;t done in Sublime either).</p>
+
+<p>This is a vague goal, so I wrote a list of questions/use cases I should be able to do with Emacs. I divided into &#8220;Essentials&#8221; and &#8220;Power features&#8221;. Learning all the essentials will put me at the same level of my Sublime Text knowledge.</p>
+
+<h2 id="essentials">Essentials</h2>
+<p>Files:</p>
+
+<ul>
+  <li>create</li>
+  <li>rename</li>
+  <li>delete</li>
+  <li>Switch between currently opened files</li>
+  <li>quickly locate a file under current directory/project</li>
+  <li>Manage projects?</li>
+</ul>
+
+<p>Layout:</p>
+
+<ul>
+  <li>Split panes (or just use tmux? )</li>
+  <li>File tree explorer</li>
+</ul>
+
+<p>Editor:</p>
+
+<ul>
+  <li>
+    <p>Select all text</p>
+  </li>
+  <li>
+    <p>Select current line*</p>
+  </li>
+  <li>Select current word*</li>
+  <li>Quickly move the cursor to some position, line, word, character*</li>
+  <li>Replace n word ocurrences (multiselect and replace)*</li>
+  <li>Copy and paste formatted (keeping indentation)*</li>
+  <li>Select a &#8220;square&#8221; portion of thext and copy/paste it*</li>
+  <li>Add bookmarks to some line number*</li>
+  <li>Quickly switch between bookmarks*</li>
+  <li>Clear bookmarks*</li>
+  <li>manage snippets*</li>
+  <li>Navigate to symbols (classes, functions&#8230;)*</li>
+  <li>Have multiple &#8220;buffers&#8221; in clipboard, selective paste*</li>
+</ul>
+
+<p>Plugins:</p>
+
+<ul>
+  <li>Install a plugin*</li>
+  <li>Remove a plugin*</li>
+  <li>Change plugin bindings*</li>
+  <li>Solve key binding conflicts*</li>
+  <li>Disable a plugin/enable*</li>
+</ul>
+
+<p>Processes:</p>
+
+<ul>
+  <li>Run commands*</li>
+  <li>Run a command everytime a file is saved*</li>
+</ul>
+
+<h2 id="advanced">Advanced</h2>
+<ul>
+  <li>Creating a plugin*</li>
+  <li>Distribute a plugin*</li>
+</ul>
+
+<p>I hope to document most of this journey in case there&#8217;s somebody in a similar position.</p>
+
+
+  </div><a class="u-url" href="/emacs/2016/02/09/learning_emacs_part1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">hugozap</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">hugozap</li><li><a class="u-email" href="mailto:hugozap@gmail.com">hugozap@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">hugozap</span></a></li><li><a href="https://www.twitter.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">hugozap</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

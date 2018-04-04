@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Learning Emacs project [Part 2] | hugozap</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Learning Emacs project [Part 2]" />
+<meta name="author" content="hugozap" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="hugozap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-02-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"hugozap"},"@type":"BlogPosting","url":"/emacs/2016/02/09/learning_emacs_part2.html","headline":"Learning Emacs project [Part 2]","dateModified":"2016-02-09T00:00:00-05:00","datePublished":"2016-02-09T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/emacs/2016/02/09/learning_emacs_part2.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="hugozap" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">hugozap</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Learning Emacs project [Part 2]</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-02-09T00:00:00-05:00" itemprop="datePublished">Feb 9, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<h3 id="summary">Summary</h3>
+
+<p>I find some errors in my emacs config and try to solve them by modifying the .emacs file (using emacs), a small test of basic navigation, saving and locks.</p>
+
+<hr />
+
+<p>Ok so I started emacs and I get some warning saying that something is wrong with the configuration. As suggested I start emacs with the &#8211;debug-init option.</p>
+
+<p>The error says:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void-variable viper-vi-global
+</code></pre></div></div>
+
+<p>So I looked and viper provides some vi emulation. I&#8217;m not interested in that and don&#8217;t remember why I messed with that in the past or how it got there.</p>
+
+<p>But I&#8217;m not interested in that so I will remove that plugin. But how?</p>
+
+<p>&#8230;</p>
+
+<p>I now remember that in my first attempt to learn emacs I installed a package called &#8216;ace-jump&#8217; and pasted some setup on my .emacs file located on 
+     /Users/myusername/.emacs</p>
+
+<p>The culprit was this line I didn&#8217;t pay attention to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;;If you use viper mode :
+(define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)
+;;If you use evil
+</code></pre></div></div>
+
+<p>I deleted those lines using (from emacs!).  using the basic commands for movement (next/previous/forwared/backwards)</p>
+
+<ul>
+  <li>C-n to move to next line (next)</li>
+  <li>C-p to move to previous line (previous)</li>
+  <li>C-b (backwards to previous character)</li>
+  <li>C-f (forwards to next character)</li>
+</ul>
+
+<p>Also C-v to jump to the next visible Screen</p>
+
+<p>Not sure how to select text, tried Shift and right arrow to set a mark to highlight the paragraph and then Backspace. It worked.</p>
+
+<p>How to delete the current line?
+&#8230;googles&#8230;</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-Shift Backspace
+</code></pre></div></div>
+
+<p>Google answer summary says that I can execute kill-whole-line command but I don&#8217;t know how to run a command yet.</p>
+
+<p>How to save the file? 
+&#8230;googles&#8230;</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-x s
+</code></pre></div></div>
+
+<p>This is a good time to search for a Cheat sheet. So I google and find this one that looks good. I&#8217;ll print it:</p>
+
+<p><a href="https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf">https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf</a></p>
+
+<p>Now I try to open a file from emacs</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-x f
+</code></pre></div></div>
+
+<p>I can type the path, autocomplete works but I get a list of possible options that match the current path. (not visible here: emacs colors one letter of each option)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In this buffer, type RET to select the completion near point.
+Possible completions are:
+.eclipse/                 .eclipse_keyring          .electron/
+.emacs                    .emacs.d/                 .emacs~
+</code></pre></div></div>
+
+<p>I assume RET is return? (I press Enter and it didn&#8217;t work as expected, a new file with the partial name .em was created and I wanted to open .emacs ) I don&#8217;t know yet how to manage buffers so I&#8217;m sure I&#8217;m doing something wrong.</p>
+
+<p>So I repeat</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-x f
+</code></pre></div></div>
+
+<p>But this time using just TAB to keep autocompleting until all the file name is written.</p>
+
+<p>I open the file and need to search for some text.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-s let's you search forward
+</code></pre></div></div>
+
+<p>With the search the cursor is positioned on the line I need to delete. 
+(For some reason C-S Backspace is not working here)</p>
+
+<p>Another way to delete is (going to the beginning of the line and delete until end)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-a
+C-k
+</code></pre></div></div>
+
+<p>I did some characters erroneusly, let&#8217;s look how to undo&#8230;</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-x u
+</code></pre></div></div>
+
+<p>At this point I repeat the key combination and must have activated another commands because I&#8217;m now on other buffer. That&#8217;s not what I want. abort mission (C-z) and try again.</p>
+
+<p>I open emacs again, and when trying to save the file I get</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/hugozap/.emacs locked by hugozap@hugoz... (pid 45537): (s, q, p, ?)?
+</code></pre></div></div>
+
+<p>What does those options mean? let&#8217;s investigate&#8230;</p>
+
+<p>From <a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Interlocking.html">http://www.gnu.org/software/emacs/manual/html_node/emacs/Interlocking.html</a></p>
+
+<ul>
+  <li>s = Steal the lock</li>
+  <li>p = Proceed</li>
+  <li>q = quit</li>
+</ul>
+
+<p>I use option &#8216;s&#8217; to steal the lock and then write the file with</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C-x s
+</code></pre></div></div>
+
+<p>Restart emacs and everything&#8217;s ok (First Win)</p>
+
+<h3 id="next">Next</h3>
+
+<p>From the quick documentation review I&#8217;ve done I keep finding tips like &#8220;Run this command&#8221;, &#8220;set this variable&#8221;, etc. I don&#8217;t know how to do that yet, and will make a jump to understanding some of the basic Lisp for emacs now.</p>
+
+
+  </div><a class="u-url" href="/emacs/2016/02/09/learning_emacs_part2.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">hugozap</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">hugozap</li><li><a class="u-email" href="mailto:hugozap@gmail.com">hugozap@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">hugozap</span></a></li><li><a href="https://www.twitter.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">hugozap</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Thoughts on MobX for large projects | hugozap</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Thoughts on MobX for large projects" />
+<meta name="author" content="hugozap" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="[WIP]" />
+<meta property="og:description" content="[WIP]" />
+<meta property="og:site_name" content="hugozap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"[WIP]","author":{"@type":"Person","name":"hugozap"},"@type":"BlogPosting","url":"/software/2017/07/19/thoughts-on-mobx-for.html","headline":"Thoughts on MobX for large projects","dateModified":"2017-07-19T00:00:00-05:00","datePublished":"2017-07-19T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/software/2017/07/19/thoughts-on-mobx-for.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="hugozap" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">hugozap</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Thoughts on MobX for large projects</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-07-19T00:00:00-05:00" itemprop="datePublished">Jul 19, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<p>[WIP]</p>
+
+<h1 id="some-things-i-learned-about-mobx">Some Things I Learned about MobX</h1>
+
+<p>I&#8217;ve been working with MobX for a while and these are some
+of the lessons I&#8217;ve learned. Some of them are personal
+preferences. I feel there&#8217;s still a lot of exploration to do before
+standard patterns emerge that answer the question of how to structure the application state with mobx.</p>
+
+<p><em>Note:</em> There are some libraries out there that help to structure the stores. In this post I&#8217;m interested in exploring solutions with plain mobx before introducing more concepts and dependencies.</p>
+
+<h2 id="split-ui-and-application-state">Split UI and Application State?</h2>
+
+<p>When learning mobx I found a recommendation somewhere on
+having a store for UI related stuff and another for 
+application model stuff. This sounds good in theory, 
+however as both UI and App stores started growing some issues appeared:</p>
+
+<p>Properties in the UI state may belong to different logical groups, so
+having them in the same artifact (The UIState mobx store) didn&#8217;t feel good,
+when working on a feature, I&#8217;m not interested in UI state properties that belong to another feature and scanning
+the file looking for them was annoying.</p>
+
+<p>Based on the previous reflection, I realized that the distinction of UI state vs App State was not being helpful for the project. A mobx store is an application artifact and everything there has to do with the UI, so instead of having a separated store for UI things, we now have 1 store per logical unit. In our case we chose subsystems like authentication,search,admin etc, but I guess this depends on the nature of the project.</p>
+
+<h2 id="domain-logic-on-mobx-stores">Domain logic on mobx Stores</h2>
+
+<p>With computed fields, some logic can be included in the mobx stores. It&#8217;s easy to start adding domain logic there, however I don&#8217;t think this is a good idea. Mobx stores are just an mechanism to update the view in a smart way, but they are a technical artifact. Domain model rules should not have anything to do with mobx terminology.</p>
+
+<p>A better approach is to have the business rules in another module that nows nothing about mobx. From the mobx store, it&#8217;s easy to have a computed field that delegates the calculation to the domain logic module(s).</p>
+
+<p>Testing the domain rules is easier if they are separated from the mobx terminology.</p>
+
+<h2 id="how-to-structure-a-store">How to structure a store?</h2>
+
+<p>For complex UI&#8217;s the stores can get pretty messy and navigating them can be tricky. A mix of properties, computed fields and actions can turn into spaguetti. A practical solution to this problems include:</p>
+
+<ul>
+  <li>
+    <p>If using a single file per store, group properties, actions and computed fields (Some people may prefer to group them by logical concerns)</p>
+  </li>
+  <li>
+    <p>Move actions to a separated file: With this approach, the mobx store gets splitted into multiple files</p>
+
+    <p>An example stores structure:</p>
+
+    <ul>
+      <li>search(Search Store folder)
+        <ul>
+          <li>store.js (properties are declared there, actions are imported here)</li>
+          <li>actions.js (extract the actions into a separate file)</li>
+          <li>computed.js (Worthy if there&#8217;s a lot of computed fields)</li>
+        </ul>
+      </li>
+      <li>users (Users Store folder)
+        <ul>
+          <li>store.js</li>
+          <li>actions.js</li>
+          <li>computed.js</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Structuring stores this way has the benefit of making it easy to locate things. When working in a feature
+we can jump quickly to the related properties or actions of the feature/subsystem we are working on ignoring
+everything else.</p>
+
+<h2 id="tldr">TLDR</h2>
+
+<ul>
+  <li>
+    <p>Everything in the mobx store is related to the UI so group by logical units (subsystems, entities, use cases) instead of UI vs App State.</p>
+  </li>
+  <li>Place domain logic in plain JS modules (that now nothing of MobX terminology) and import them from your stores</li>
+  <li>Experiment with different Store layouts. Optimize for maintenability.</li>
+</ul>
+
+
+  </div><a class="u-url" href="/software/2017/07/19/thoughts-on-mobx-for.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">hugozap</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">hugozap</li><li><a class="u-email" href="mailto:hugozap@gmail.com">hugozap@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">hugozap</span></a></li><li><a href="https://www.twitter.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">hugozap</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

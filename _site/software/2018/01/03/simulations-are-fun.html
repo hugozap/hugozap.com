@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Simulations are fun! | hugozap</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Simulations are fun!" />
+<meta name="author" content="hugozap" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="hugozap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-03T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"hugozap"},"@type":"BlogPosting","url":"/software/2018/01/03/simulations-are-fun.html","headline":"Simulations are fun!","dateModified":"2018-01-03T00:00:00-05:00","datePublished":"2018-01-03T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/software/2018/01/03/simulations-are-fun.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="hugozap" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">hugozap</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Simulations are fun!</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-01-03T00:00:00-05:00" itemprop="datePublished">Jan 3, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<p>Inspired by Tokyo, I&#8217;ve been experimenting with different techniques to simulate a city and its people. There&#8217;s been a lot of challenges and it has 
+been a great excercise.</p>
+
+<ul>
+  <li><a href="http://tokyosim000001.surge.sh/">View v000000.1 - B&amp;W </a></li>
+  <li><a href="http://tokyosim-v00000002.surge.sh/">View v000000.2 - Some colors, people using portals</a></li>
+</ul>
+
+<h2 id="using-a-type-system-for-javascript">Using a type system for JavaScript</h2>
+
+<p>For the first prototype version I used plain JavaScript. I reached a point where not having types was causing some pain. Especially as each world entity has properties that I had to remember. Different entities shared some properties. For example Person and Floor have both positions (x,y) , Floor and Train have both an array of Persons.</p>
+
+<p>As things were getting more complex adding a type system was needed. I didn&#8217;t want to spend a lot of time on setup so I went with Flow. After a few hours refactoring the code, the cognitive load was lower again and I could keep focusing on the next challenge.</p>
+
+<h2 id="svg-vs-canvas-vs-webgl-renderer">SVG vs canvas vs webgl renderer</h2>
+
+<p>I started using SVG and d3.js, this combination is usually used to create charts. I modeled the city as a list of data entites and d3 has a lot of utilities to make it easier to create visualizations with it. The problem with SVG for this use cases is that one has to store the SVG internal nodes to update only those (re creating the SVG would be very expensive). First prototype version woks ok , but I knew that it was time to switch to a more clean approach. Currently I&#8217;m working on the canvas renderer (using p5.js)</p>
+
+<h2 id="portals">Portals</h2>
+
+<p>One of the interesting challenges I had to solve was moving one person from one place to another. I have a list of Places and when the entity gets closer to a certain point, it needs to be transfered to other place ( For example, from one building floor to another, or from the building 1st floor to the street)</p>
+
+<p>The solution to this, was to introduce the concept of &#8220;Portals&#8221;. Each portal connects 2 places at specific points (x, y). I created an interface IPortal with all the portal properties. So far I have 2 types of portals:</p>
+
+<ul>
+  <li>Escalators (from floor to floor )</li>
+  <li>Building entrance ( from floor to street )</li>
+</ul>
+
+<h2 id="end-goal">End goal</h2>
+
+<p>I&#8217;m working on the rule engine and new renderer now. It started as a personal excercise but I see how it can be used to create some fun 2d things with it.
+Watching the world entities go from one place to another is fun and designing/debugging has been a great brain workout so I plan to keep adding some features and release derivative products, maybe just small demos/games.</p>
+
+
+  </div><a class="u-url" href="/software/2018/01/03/simulations-are-fun.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">hugozap</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">hugozap</li><li><a class="u-email" href="mailto:hugozap@gmail.com">hugozap@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">hugozap</span></a></li><li><a href="https://www.twitter.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">hugozap</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

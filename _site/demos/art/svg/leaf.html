@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leafs</title>
+</head>
+<body>
+	<svg id='canvas' width="502px" height="400px" viewBox="0 0 1000 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+	</svg>
+
+	<script type="text/javascript" src='jquery.js'></script>
+	<script type="text/javascript" src='velocity.min.js'></script>
+	<script type="text/javascript" src='snap.svg.js'></script>
+
+	<script type="text/javascript">
+	var svg = document.querySelector('#canvas');
+	var snap = Snap('#canvas');
+
+
+	function drawBranch( origin, angle, length, factor ){
+		//Draw bezier curve
+		//Set target point
+		var target = {
+
+			x:origin.x + Math.cos(angle)*length,
+			y:origin.y - Math.abs(Math.sin(angle)*length)
+		};
+
+
+		console.log('origin', origin);
+		console.log('target:',target);
+		console.log('-------------')
+
+
+
+		var control1 = {
+			x: origin.x + (target.x-origin.x)/0.95,
+			y: origin.y - (origin.y-target.y)/4
+		}
+
+		//console.log('control1:',control1);
+
+
+		//TODO: optimise some day.
+		var control2 = {
+			x: origin.x + ((target.x - origin.x)*1.1),
+			y: origin.y - ((origin.y - target.y)/4)*3
+		}
+
+		//console.log('control2:',control2);
+
+
+		var p = snap.path(Snap.format('M{origin.x},{origin.y} C{control1.x},{control1.y}, {control2.x},{control2.y} {target.x},{target.y} ',{
+				origin,
+				control1,
+				control2,
+				target		
+			}
+		));
+		p.attr('fill','transparent');
+		p.attr('stroke','#7ED321');
+		p.attr('strokeWidth','4');
+		p.attr('stroke-dasharray','200 1000');
+
+		var c1 = snap.circle(control1.x, control1.y, 2);
+		c1.attr('fill','red');
+
+		var c2 = snap.circle(control2.x, control2.y, 2);
+		c1.attr('fill','blue');
+
+		var originShape = snap.circle(origin.x, origin.y, 4);
+		var endShape = snap.circle(target.x, target.y, 4);
+
+		return target;
+
+
+	}
+
+
+	var origin = {x:500, y:540};
+	var angle = 45;
+	var branchLength = 80;
+
+	for(var i=0;i<10;i++){
+
+		origin = drawBranch( origin, angle, 100);
+		angle = Math.random()*180;
+		console.log('angle:'+angle);
+		branchLength-=branchLength*0.15;
+	}
+
+	//Animate all paths
+	var paths = svg.querySelectorAll('path');
+
+	// $(paths).velocity({
+	//   'strokeDashoffset':200
+	// },{duration:4000, loop:true});
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Sending and receiving dates from android/java/dotnet the easy way | hugozap</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Sending and receiving dates from android/java/dotnet the easy way" />
+<meta name="author" content="hugozap" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="hugozap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-04-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"hugozap"},"@type":"BlogPosting","url":"/software/2012/04/09/unixtimestamps1.html","headline":"Sending and receiving dates from android/java/dotnet the easy way","dateModified":"2012-04-09T00:00:00-05:00","datePublished":"2012-04-09T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/software/2012/04/09/unixtimestamps1.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="hugozap" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">hugozap</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Sending and receiving dates from android/java/dotnet the easy way</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2012-04-09T00:00:00-05:00" itemprop="datePublished">Apr 9, 2012
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<h2 id="the-problem">The problem</h2>
+
+<p>Date serializing is not as easy as it sounds. If you are using JSON is possible that you will encounter problems with formats, time zone representation, etc.</p>
+
+<p>If you need to send and receive dates from the server to android you have to take this issues into account</p>
+
+<p>Besides that, there is the timezone architecture decision. How will you store your dates?. Will you store everything in UTC? (I prefer this) or will you store the date and have separate columns to store timezone information ( works too but makes date handling more difficult ).</p>
+
+<h2 id="differences-in-parsers-and-formatters">Differences in parsers and formatters</h2>
+
+<p>I&#8217;m working on  a mobile application (Android) that sends and receives data from a .NET Backend.
+At first i chose ISO Format to send and receive dates. Everything is stored as UTC and only converted to local time to display information to the user.</p>
+
+<p>One problem i faced was that one part was sending the Z character and the other part didn&#8217;t understand it. I checked the format strings and everything appeared ok.
+After a little googling, i noticed that some APIs used unixtime format and i realized that this is the simplest way to handle it. And i like simplicity.</p>
+
+<h3 id="working-with-unix-time-stamps-in-android-java">Working with unix time stamps in android (java)</h3>
+<p>I decided to store the dates as unix time stamps and forget about date handling in sqlite, java, json, .net ( a lot of potential errors ). 
+Dates will be sent and received as long values (no json hacks) and i had to have a way to convert those values to the native Date type in the server and client</p>
+
+<p>(note: I use Gson as the Json serializar)</p>
+
+<p>In java i have the following method utilities</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">toUnixTime</span><span class="o">(</span><span class="n">Date</span> <span class="n">d</span><span class="o">)</span>
+	<span class="o">{</span>
+		<span class="k">return</span> <span class="n">d</span><span class="o">.</span><span class="na">getTime</span><span class="o">()/</span><span class="mi">1000L</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+		<span class="kd">public</span> <span class="kd">static</span> <span class="n">Date</span> <span class="nf">FromUnixTime</span><span class="o">(</span><span class="kt">long</span> <span class="n">unix_time</span><span class="o">)</span>
+	<span class="o">{</span>	
+		<span class="n">Date</span> <span class="n">date</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span> <span class="o">();</span>
+		<span class="n">date</span><span class="o">.</span><span class="na">setTime</span><span class="o">(</span><span class="n">unix_time</span><span class="o">*</span><span class="mi">1000</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">date</span><span class="o">;</span>
+	<span class="o">}</span></code></pre></figure>
+
+<p>With Gson one can create custom serializers/deserializers, that&#8217;s what we want to send and receive the date as a number:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnixTimeSerializer</span> <span class="kd">implements</span> <span class="n">JsonSerializer</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="nd">@Override</span>
+	  <span class="kd">public</span> <span class="n">JsonElement</span> <span class="nf">serialize</span><span class="o">(</span><span class="n">Date</span> <span class="n">src</span><span class="o">,</span> <span class="n">Type</span> <span class="n">typeOfSrc</span><span class="o">,</span> <span class="n">JsonSerializationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+
+		<span class="n">JsonNull</span> <span class="n">jnull</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JsonNull</span><span class="o">();</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">src</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+			<span class="k">return</span> <span class="n">jnull</span><span class="o">;</span>
+		
+	    <span class="k">return</span> <span class="k">new</span> <span class="nf">JsonPrimitive</span><span class="o">(</span><span class="n">Utils</span><span class="o">.</span><span class="na">toUnixTime</span><span class="o">(</span><span class="n">src</span><span class="o">));</span>
+	  <span class="o">}</span>
+	<span class="o">}</span>
+	
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnixTimeDeserializer</span> <span class="kd">implements</span> <span class="n">JsonDeserializer</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="nd">@Override</span>
+	  <span class="kd">public</span> <span class="n">Date</span> <span class="nf">deserialize</span><span class="o">(</span><span class="n">JsonElement</span> <span class="n">json</span><span class="o">,</span> <span class="n">Type</span> <span class="n">typeOfT</span><span class="o">,</span> <span class="n">JsonDeserializationContext</span> <span class="n">context</span><span class="o">)</span>
+	      <span class="kd">throws</span> <span class="n">JsonParseException</span> <span class="o">{</span>
+
+		<span class="k">if</span><span class="o">(</span><span class="n">json</span><span class="o">.</span><span class="na">isJsonNull</span><span class="o">())</span>
+			  <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+		  <span class="kt">long</span> <span class="n">unixstamp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">getAsLong</span><span class="o">();</span>		  
+		  <span class="k">return</span> <span class="n">ObassiDateUtils</span><span class="o">.</span><span class="na">FromUnixTime</span><span class="o">(</span><span class="n">unixstamp</span><span class="o">);</span>
+	  <span class="o">}</span>
+	<span class="o">}</span>
+
+	</code></pre></figure>
+
+<p>And to setup the serializers i use the following code:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Gson</span> <span class="n">gson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GsonBuilder</span><span class="o">().</span><span class="na">setDateFormat</span><span class="o">(</span><span class="n">ObassiDateUtils</span><span class="o">.</span><span class="na">isoFormat</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="n">UnixTimeSerializer</span><span class="o">())</span>
+				<span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="n">UnixTimeDeserializer</span><span class="o">())</span>
+				<span class="o">.</span><span class="na">create</span><span class="o">();</span>
+				</code></pre></figure>
+
+<p>The json received from server contains the unix timestamp, however gson deserializes it into the class i select and populates the corresponding date fields.</p>
+
+  </div><a class="u-url" href="/software/2012/04/09/unixtimestamps1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">hugozap</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">hugozap</li><li><a class="u-email" href="mailto:hugozap@gmail.com">hugozap@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">hugozap</span></a></li><li><a href="https://www.twitter.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">hugozap</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

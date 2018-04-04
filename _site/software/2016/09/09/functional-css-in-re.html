@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Functional CSS for your next project | hugozap</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Functional CSS for your next project" />
+<meta name="author" content="hugozap" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="hugozap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-09-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"hugozap"},"@type":"BlogPosting","url":"/software/2016/09/09/functional-css-in-re.html","headline":"Functional CSS for your next project","dateModified":"2016-09-09T00:00:00-05:00","datePublished":"2016-09-09T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/software/2016/09/09/functional-css-in-re.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="hugozap" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">hugozap</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Functional CSS for your next project</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-09-09T00:00:00-05:00" itemprop="datePublished">Sep 9, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<h2 id="whats-functional-css">What&#8217;s functional CSS?</h2>
+
+<p>Functional CSS is an alternative approach that you can use to define the visual properties and styles of your Web site. It&#8217;s not about new technologies or libraries, but a set of principles like:</p>
+
+<ul>
+  <li>Write the least amount of CSS stylesheets.</li>
+  <li>Use small units to compose your interfaces. These are defined as single purpose CSS classses (e.g w-100 means width:100%)</li>
+  <li>Focus on composability and avoid the cascade in CSS</li>
+</ul>
+
+<p>The idea is that you can create most of your layouts without creating custom classes. Instead you use small units (defined as single purpose classes) that do one thing only and when applied to an element exerts the desired change.</p>
+
+<p>E.g</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dib ph1 w-50 bg-blue"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+<p>In this case we are using the following css atoms:</p>
+
+<ul>
+  <li>dib: display: inline-block</li>
+  <li>ph1: set horizontal padding to one of our predefined scale values (for consistency)</li>
+  <li>w-50: set the width to 50%</li>
+  <li>bg-blue: set background to blue</li>
+</ul>
+
+<h2 id="whats-wrong-with-traditional-css-approach">What&#8217;s wrong with traditional CSS approach?</h2>
+
+<p>If you are not familiar with this approach you may be thinking:</p>
+
+<ul>
+  <li>That&#8217;s not semantic.</li>
+  <li>I could easily create a class that groups those declarations.</li>
+  <li>the html class will grow.</li>
+</ul>
+
+<p>Regarding &#8216;semantics&#8217;, the problem is that traditional css thinking implies that semantics relates to the business problem, but that&#8217;s different from visual semantics. When working with html you are already working with the view, so it&#8217;s ok to decorate your elements with small classes that define a visual behavior.</p>
+
+<h2 id="how-a-traditional-css-evolves-until-it-implodes">How a traditional CSS evolves until it implodes</h2>
+
+<ul>
+  <li>project starts with a clean css</li>
+  <li>devs add classes that represent the application model (not the visual model) like &#8216;user-details, payment-form, company-info1, company-info2, etc&#8230;&#8217;</li>
+  <li>devs decide that they want to avoid rule duplication so they will create parent classes e.g panel-details, panel-details-sub, base-form</li>
+  <li>The project grows and things start to require their own rules. Sometimes they look really similar but just override a couple of things, other times just a few rules are shared and the rest is overrided.</li>
+  <li>devs keep creating custom rules targetting the specific elements and overriding them e.g #new-person-details, #customerabc-form, etc.</li>
+  <li>project keeps growing and devs keep adding classess, sometimes overriding declarations.</li>
+  <li>At some point, because the different possible overrides, it&#8217;s not easy to change a base class without breaking something else, so the CSS class race starts:  Override properties with !important and adding classess at the bottom of the file.</li>
+  <li>When a change is required, nobody touches previous declarations anymore and just add a new class that overrides what&#8217;s needed.</li>
+</ul>
+
+<p>It&#8217;s not easy to avoid the previous scenario with the traditional CSS best practices. Check the custom css files of some popular sites and you will see that. Other problems:</p>
+
+<ul>
+  <li>It&#8217;s not easy to optimize, with all the overrides the confidence to change something is lost.</li>
+</ul>
+
+<h2 id="compose-your-ui-from-small-units">Compose your UI from small units</h2>
+
+<p>By using the functional approach I&#8217;ve found the iteration is faster because we are working directly with the element we want to change. If I see an element declared as</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"pa2 f4 absolute top-0 w-100 w-25-ns"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>It&#8217;s easy to infer how the component will behave. In this case the element will have a padding value of &#8211;second-value-in-default-scale, a font size equal to &#8211;fourth-value-in-scale, it&#8217;ll have absolute positioning,  it&#8217;s top value will be 0 and it&#8217;s width equal to 100%. Also w-25-ns means it will have a width = 25% if the screen is not small, that&#8217;s great we are even specifying responsive behavior conditions. Check  the [tachyons] components for more examples.</p>
+
+<p>Working this way requires a different mindset and may feel weird at the beginning but when you get familiar with the small unit classes (atoms) you will enjoy composing your UI&#8217;s. also, it&#8217;s fun.</p>
+
+<p>Note: Tachyions has a predefined set of distances, font sizes, margins, widths that were created for consistency and proportion but can be changed easily. I&#8217;ve found the defaults will get you far. In any case avoid using magic numbers for css values.</p>
+
+<h2 id="about-duplication">About duplication</h2>
+
+<p>With this approach the class attribute can be grow a lot. I don&#8217;t think that&#8217;s a big deal,  we are using a the same atoms frequently so they will appear a lot on our html. That&#8217;s a small tradeoff but the benefit is much more important, you can now see the markup and have a better idea of how elements will look.</p>
+
+
+  </div><a class="u-url" href="/software/2016/09/09/functional-css-in-re.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">hugozap</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">hugozap</li><li><a class="u-email" href="mailto:hugozap@gmail.com">hugozap@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">hugozap</span></a></li><li><a href="https://www.twitter.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">hugozap</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

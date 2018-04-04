@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Rethinking Accessibility | hugozap</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Rethinking Accessibility" />
+<meta name="author" content="hugozap" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="hugozap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-10T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"hugozap"},"@type":"BlogPosting","url":"/software/2017/08/10/rethinking-accessibi.html","headline":"Rethinking Accessibility","dateModified":"2017-08-10T00:00:00-05:00","datePublished":"2017-08-10T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/software/2017/08/10/rethinking-accessibi.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="hugozap" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">hugozap</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Rethinking Accessibility</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-08-10T00:00:00-05:00" itemprop="datePublished">Aug 10, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+<p>[Work in Progress]</p>
+
+<p>Most of the accessibility resources out there focus on just one type of accessibility. That is, making a Web site easier to use to people with vision problems. From using contrasting colors, to adding special attributes for screen readers. The site structure is the same, but the goal is to make it less hard to use.</p>
+
+<p>This is a very limited view of what the Web could be in terms of accessibility.</p>
+
+<h2 id="issues-with-current-web-accessibility-guidelines-and-checklists">Issues with current Web accessibility guidelines and checklists.</h2>
+
+<p>Because the current accessibility principles are somewhat standard, there are lists that can be used to check against this principles. However, a developer can follow the guidelines and still create a Website that users cannot use. Its better than nothing but still far from ideal.</p>
+
+<p>I&#8217;ve been working on programming workshops for deaf students. A big challenge for them is the text oriented nature of most programming resources, and the lack of videos with sign languange interpretation. I was not aware that for most of them, written language is not natural, and they usually get confused with long paragraphs. Having subtitles for videos is also problematic, because again, that&#8217;s not how they communicate and its common for them to get lost.  ( Visual, concise explanations work well here )</p>
+
+<p>So even if a Website passess all the accessibility checks but is heavy on text, with few visuals and the video content was thought only for people who can hear, it would not be accessible for that group.</p>
+
+<h2 id="rethinking-accessibility-for-web-applications">Rethinking Accessibility for Web Applications.</h2>
+
+<p>Instead of thinking of accessibility as something that&#8217;s added to the existing web application, it has to be included from the conceptual stages of the project. For a platform to be inclusive some assumptions must be re evaluated.</p>
+
+<h3 id="same-goal-multiple-experiences">Same goal, Multiple experiences</h3>
+
+<p>Instead of starting with a single User Experience and later trying to force it into being accesible, a platform can deliver a totally different experience based on the user preferences.</p>
+
+<h3 id="user-intents">User intents</h3>
+
+<p>Most Web applications can be defined by user intents: The user end goals</p>
+
+<p>Some example user intents:</p>
+
+<ul>
+  <li>get traffic data</li>
+  <li>reserve a parking spot</li>
+  <li>search and retrieve articles related to a topic of interest</li>
+  <li>register for a local event</li>
+  <li>communicate with another user</li>
+</ul>
+
+<h3 id="accessible-intents">Accessible intents.</h3>
+
+<p>An accessible application has multiple experiences. Each experience implements the list of intents in a different way. For example</p>
+
+<ul>
+  <li>
+    <p>Traditional Web experience : How most web sites are planned and implemented. Base HTML layout grouped by hierarchy.</p>
+  </li>
+  <li>
+    <p>Audio based experience:  A voice based experience can be implemented, with voice commands as main input. Tap, double tap and other swipe gestures can be used as navigation aids too. Voice settings would ideally be set based on user preferences (pitch, speed, etc).</p>
+  </li>
+  <li>
+    <p>Visual experience for people with mobility problems: For people with reduced mobility a custom navitation system using eye tracking or wizard base navigation with yes/no could work.</p>
+  </li>
+</ul>
+
+<p>Applications would offer a way to query what experiences are supported, ways to switch between them.</p>
+
+<p>A user could switch to &#8220;audio based experience&#8221; and keep interacting with the web application using voice commands.</p>
+
+<h3 id="the-role-of-user-agents">The role of user agents</h3>
+
+<p>If we want the Web to be truly accessible, then the browsers must evolve to make it easy to &#8220;switch experiences&#8221; based on user previously set preferences.</p>
+
+<p>Right now every time a user visits a web site, the browser sends some data,things like browser version, operative system etc. The application server can use this to make some decisions on the data that would be returned to the client. However, there&#8217;s now way for a user to set her preferred experience. Ideally the browser would send a list of experiences so the particular experience can be delivered.</p>
+
+<h3 id="the-dom-is-just-an-implementation-detail">The DOM is just an implementation detail</h3>
+
+<p>The web distribution model is the main advantage of the platform. The DOM is just an implementation detail that we may replace with something else. For some web sites, having a WebGL based experience will be a good idea. A user with reduced mobility can use a vibrating device with a button as the controller and a custom experience  that narrates and understands that kind of input.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Accessibility is much more than optimizing for screen readers.  A web application can be thought as a series of user intents that can be delivered in a different way (experience). Ideally a Web application would offer ways to query supported experiences. Cooperation with the user agent would allow automatic selection of the best experience based on user preferences.</p>
+
+
+  </div><a class="u-url" href="/software/2017/08/10/rethinking-accessibi.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">hugozap</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">hugozap</li><li><a class="u-email" href="mailto:hugozap@gmail.com">hugozap@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">hugozap</span></a></li><li><a href="https://www.twitter.com/hugozap"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">hugozap</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
