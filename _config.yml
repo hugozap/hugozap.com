@@ -38,7 +38,7 @@ minima:
 
 # Build settings
 markdown: kramdown
-theme: minima
+remote_theme: jekyll334
 exclude:
   - Gemfile
   - Gemfile.lock

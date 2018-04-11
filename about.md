@@ -6,7 +6,13 @@ permalink: /about/
 
 Hi, I'm Hugo. 
 
-In this website I write random things about
-projects or experiments I'm currently working on.
-Most of my writings here are about software, education, accessibility ideas
-and web technologies.
+I'm a web creator. I enjoy building
+tools using Web Technologies.
+
+My current areas of interest are:
+
+- Creating tools to facilitate the teaching of complex concepts.
+- Use Web technologies to improve learning resources accessibility.
+- Creative coding.
+- Descentralized web technologies.
+- Exploring ways to improve developer/designer collaboration. (See [react-svgmt](https://github.com/hugozap/react-svgmt))
