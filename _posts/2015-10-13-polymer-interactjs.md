@@ -5,8 +5,6 @@ category : development
 tags : [polymer, frontend, web]
 published: true
 ---
-{% include JB/setup %}
-
 
 Need drag and drop with your Polymer (1+) elements?
 

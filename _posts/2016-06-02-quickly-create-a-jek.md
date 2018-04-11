@@ -5,7 +5,6 @@ category : software
 tags : [utilities,jekyll,tools]
 published: true
 ---
-{% include JB/setup %}
 
 [new-jekyll-post](https://www.npmjs.com/package/new-jekyll-post) creates a new blog post file for you and automatically opens the default text editor.
 

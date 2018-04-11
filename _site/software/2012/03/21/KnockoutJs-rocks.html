@@ -1,9 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>KnockoutJS rocks for web development | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="KnockoutJS rocks for web development" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’m working on my second project using KnockoutJS and it has saved me a lot of time with the benefit of keeping my clientside code organized. I have enjoyed frontend development since i learned javascript and jquery and knockoutjs makes it more fun to build Web applications. The reason is that i can focus on the client logic and forget about dealing with dom elements updates." />
+<meta property="og:description" content="I’m working on my second project using KnockoutJS and it has saved me a lot of time with the benefit of keeping my clientside code organized. I have enjoyed frontend development since i learned javascript and jquery and knockoutjs makes it more fun to build Web applications. The reason is that i can focus on the client logic and forget about dealing with dom elements updates." />
+<link rel="canonical" href="http://localhost:4000/software/2012/03/21/KnockoutJs-rocks.html" />
+<meta property="og:url" content="http://localhost:4000/software/2012/03/21/KnockoutJs-rocks.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-03-21T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I’m working on my second project using KnockoutJS and it has saved me a lot of time with the benefit of keeping my clientside code organized. I have enjoyed frontend development since i learned javascript and jquery and knockoutjs makes it more fun to build Web applications. The reason is that i can focus on the client logic and forget about dealing with dom elements updates.","@type":"BlogPosting","url":"http://localhost:4000/software/2012/03/21/KnockoutJs-rocks.html","headline":"KnockoutJS rocks for web development","dateModified":"2012-03-21T00:00:00-05:00","datePublished":"2012-03-21T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/software/2012/03/21/KnockoutJs-rocks.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body class="w-100 sans-serif bg-white"><header class="bg-black-90  fixed top-0 w-100 ph3 pv3 pv4-ns ph4-m ph5-l z-2"><nav class="f6 fw6 ttu tracked tl tr-ns relative tc">
+    <a class="relative block absolute-ns dib-ns left-0 link dim white " href="/">Your awesome title</a><a class="link dim white dib mr3" href="/about/" title="About">About</a></nav></header>
 
-<p>I&#8217;m working on my second project using <a href="www.knockoutjs.com">KnockoutJS</a> and it has saved me a lot of time with the benefit of keeping my clientside code organized. I have enjoyed frontend development since i learned javascript and jquery and knockoutjs makes it more fun to build Web applications. The reason is that i can focus on the client logic and forget about dealing with dom elements updates.</p>
+<main class="ph3 pv5 pa5-ns mt3 mt5-ns" aria-label="Content">
+        <article class="measure-wide lh-copy" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <h1 class="f3 f2-m f1-l" itemprop="name headline">KnockoutJS rocks for web development</h1>
+    <p class="">
+      <time class="" datetime="2012-03-21T00:00:00-05:00" itemprop="datePublished">Mar 21, 2012
+      </time></p>
+  </header>
+  <p class="lh-copy">
+    <p>I’m working on my second project using <a href="www.knockoutjs.com">KnockoutJS</a> and it has saved me a lot of time with the benefit of keeping my clientside code organized. I have enjoyed frontend development since i learned javascript and jquery and knockoutjs makes it more fun to build Web applications. The reason is that i can focus on the client logic and forget about dealing with dom elements updates.</p>
 
 <h2 id="the-problem-that-knockoutjs-solves">The problem that knockoutjs solves.</h2>
 
-<p>I love JavaScript and find JQuery very useful , however i don&#8217;t like plumbing code specially when dealing with updating DOM elements from model properties or visceversa.  Even trivial applications can benefit from a databinding mechanism like the one knockoutjs offers.</p>
+<p>I love JavaScript and find JQuery very useful , however i don’t like plumbing code specially when dealing with updating DOM elements from model properties or visceversa.  Even trivial applications can benefit from a databinding mechanism like the one knockoutjs offers.</p>
 
 <p>( trivial example )
 suppose you need to create a web application that captures two fields FIELD1 and FIELD2 using input elements and display the sum of both elements whenever one of them changes.</p>
@@ -45,7 +76,7 @@ The html</p>
   <span class="k">return</span> <span class="nx">val1</span><span class="o">+</span><span class="nx">val2</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Now let&#8217;s see how we can create the example with knockoutjs.
+<p>Now let’s see how we can create the example with knockoutjs.
 <a href="http://jsbin.com/ucowot/2/edit">Check the code using knockoutjs here</a></p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Model</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
@@ -63,7 +94,7 @@ The html</p>
   <span class="nx">ko</span><span class="p">.</span><span class="nx">applyBindings</span><span class="p">(</span><span class="k">new</span> <span class="nx">Model</span><span class="p">());</span>
 <span class="p">});</span></code></pre></figure>
 
-<p>Note that with knockout we don&#8217;t have to reference the html elements in our javascript code. We also don&#8217;t have to update manually the text of the span element that displays the result. This is possible because we created a computed value and let knockoutjs handle the update of the element whenever field1 or field2 change.</p>
+<p>Note that with knockout we don’t have to reference the html elements in our javascript code. We also don’t have to update manually the text of the span element that displays the result. This is possible because we created a computed value and let knockoutjs handle the update of the element whenever field1 or field2 change.</p>
 
 <p>The binding is really easy, we use the attribute data-bind</p>
 
@@ -71,3 +102,13 @@ The html</p>
 
 <p>Knockout uses the concept of observables so it can track changes in the values and update the corresponding html element, it also handle the common change events in form elements and update the observable value.</p>
 
+
+  </p>
+  <a class="" href="/software/2012/03/21/KnockoutJs-rocks.html" hidden></a>
+
+</article>
+
+
+    </main></body>
+
+</html>

@@ -5,7 +5,6 @@ category : development
 tags : [nodejs, libraries]
 published: true
 ---
-{% include JB/setup %}
 
 
 There are a lot of frameworks to include tests in your projects, one popular choice is Mocha and the Should package for the assertion syntax.

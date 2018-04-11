@@ -1,11 +1,10 @@
 ---
-title: Teaching programming with JavaScript.
+title: Enseñar a programar.
 layout: post
 category : software
 tags : [javascript]
 published: true
 ---
-{% include JB/setup %}
 
 Hace poco tuve una conversación con los organizadores de una comunidad
 que realiza eventos que promueven el desarrollo con JavaScript. Hablamos acerca de los desafíos de eventos  dirigidos a principiantes. Mantener la motivación es uno de los factores críticos. No es fácil planear ni ejecutar talleres donde todos sientan que aprendieron algo, y más importante, donde se siembre la curiosidad por seguir experimentando y aprendiendo.
@@ -33,7 +32,6 @@ Es maravilloso ver que algo se mueve en la pantalla, cambia de color o se desvan
 
 Estos principios los pondremos en práctica pronto en un taller dirigido a principiantes.
 
-Update: Funcionó bastante bien...
 
 
 

@@ -1,5 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Rethinking Accessibility | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Rethinking Accessibility" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="[Work in Progress] Most of the accessibility resources out there focus on just one type of accessibility. That is, making a Web site easier to use to people with vision problems. From using contrasting colors, to adding special attributes for screen readers. The site structure is the same, but the goal is to make it less hard to use." />
+<meta property="og:description" content="[Work in Progress] Most of the accessibility resources out there focus on just one type of accessibility. That is, making a Web site easier to use to people with vision problems. From using contrasting colors, to adding special attributes for screen readers. The site structure is the same, but the goal is to make it less hard to use." />
+<link rel="canonical" href="http://localhost:4000/software/2017/08/10/rethinking-accessibi.html" />
+<meta property="og:url" content="http://localhost:4000/software/2017/08/10/rethinking-accessibi.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-10T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"[Work in Progress] Most of the accessibility resources out there focus on just one type of accessibility. That is, making a Web site easier to use to people with vision problems. From using contrasting colors, to adding special attributes for screen readers. The site structure is the same, but the goal is to make it less hard to use.","@type":"BlogPosting","url":"http://localhost:4000/software/2017/08/10/rethinking-accessibi.html","headline":"Rethinking Accessibility","dateModified":"2017-08-10T00:00:00-05:00","datePublished":"2017-08-10T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/software/2017/08/10/rethinking-accessibi.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body class="w-100 sans-serif bg-white"><header class="bg-black-90  fixed top-0 w-100 ph3 pv3 pv4-ns ph4-m ph5-l z-2"><nav class="f6 fw6 ttu tracked tl tr-ns relative tc">
+    <a class="relative block absolute-ns dib-ns left-0 link dim white " href="/">Your awesome title</a><a class="link dim white dib mr3" href="/about/" title="About">About</a></nav></header>
 
-<p>[Work in Progress]</p>
+<main class="ph3 pv5 pa5-ns mt3 mt5-ns" aria-label="Content">
+        <article class="measure-wide lh-copy" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <h1 class="f3 f2-m f1-l" itemprop="name headline">Rethinking Accessibility</h1>
+    <p class="">
+      <time class="" datetime="2017-08-10T00:00:00-05:00" itemprop="datePublished">Aug 10, 2017
+      </time></p>
+  </header>
+  <p class="lh-copy">
+    <p>[Work in Progress]</p>
 
 <p>Most of the accessibility resources out there focus on just one type of accessibility. That is, making a Web site easier to use to people with vision problems. From using contrasting colors, to adding special attributes for screen readers. The site structure is the same, but the goal is to make it less hard to use.</p>
 
@@ -9,13 +40,13 @@
 
 <p>Because the current accessibility principles are somewhat standard, there are lists that can be used to check against this principles. However, a developer can follow the guidelines and still create a Website that users cannot use. Its better than nothing but still far from ideal.</p>
 
-<p>I&#8217;ve been working on programming workshops for deaf students. A big challenge for them is the text oriented nature of most programming resources, and the lack of videos with sign languange interpretation. I was not aware that for most of them, written language is not natural, and they usually get confused with long paragraphs. Having subtitles for videos is also problematic, because again, that&#8217;s not how they communicate and its common for them to get lost.  ( Visual, concise explanations work well here )</p>
+<p>I’ve been working on programming workshops for deaf students. A big challenge for them is the text oriented nature of most programming resources, and the lack of videos with sign languange interpretation. I was not aware that for most of them, written language is not natural, and they usually get confused with long paragraphs. Having subtitles for videos is also problematic, because again, that’s not how they communicate and its common for them to get lost.  ( Visual, concise explanations work well here )</p>
 
 <p>So even if a Website passess all the accessibility checks but is heavy on text, with few visuals and the video content was thought only for people who can hear, it would not be accessible for that group.</p>
 
 <h2 id="rethinking-accessibility-for-web-applications">Rethinking Accessibility for Web Applications.</h2>
 
-<p>Instead of thinking of accessibility as something that&#8217;s added to the existing web application, it has to be included from the conceptual stages of the project. For a platform to be inclusive some assumptions must be re evaluated.</p>
+<p>Instead of thinking of accessibility as something that’s added to the existing web application, it has to be included from the conceptual stages of the project. For a platform to be inclusive some assumptions must be re evaluated.</p>
 
 <h3 id="same-goal-multiple-experiences">Same goal, Multiple experiences</h3>
 
@@ -53,13 +84,13 @@
 
 <p>Applications would offer a way to query what experiences are supported, ways to switch between them.</p>
 
-<p>A user could switch to &#8220;audio based experience&#8221; and keep interacting with the web application using voice commands.</p>
+<p>A user could switch to “audio based experience” and keep interacting with the web application using voice commands.</p>
 
 <h3 id="the-role-of-user-agents">The role of user agents</h3>
 
-<p>If we want the Web to be truly accessible, then the browsers must evolve to make it easy to &#8220;switch experiences&#8221; based on user previously set preferences.</p>
+<p>If we want the Web to be truly accessible, then the browsers must evolve to make it easy to “switch experiences” based on user previously set preferences.</p>
 
-<p>Right now every time a user visits a web site, the browser sends some data,things like browser version, operative system etc. The application server can use this to make some decisions on the data that would be returned to the client. However, there&#8217;s now way for a user to set her preferred experience. Ideally the browser would send a list of experiences so the particular experience can be delivered.</p>
+<p>Right now every time a user visits a web site, the browser sends some data,things like browser version, operative system etc. The application server can use this to make some decisions on the data that would be returned to the client. However, there’s now way for a user to set her preferred experience. Ideally the browser would send a list of experiences so the particular experience can be delivered.</p>
 
 <h3 id="the-dom-is-just-an-implementation-detail">The DOM is just an implementation detail</h3>
 
@@ -69,3 +100,13 @@
 
 <p>Accessibility is much more than optimizing for screen readers.  A web application can be thought as a series of user intents that can be delivered in a different way (experience). Ideally a Web application would offer ways to query supported experiences. Cooperation with the user agent would allow automatic selection of the best experience based on user preferences.</p>
 
+
+  </p>
+  <a class="" href="/software/2017/08/10/rethinking-accessibi.html" hidden></a>
+
+</article>
+
+
+    </main></body>
+
+</html>

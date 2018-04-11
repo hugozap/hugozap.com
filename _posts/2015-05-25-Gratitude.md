@@ -4,8 +4,6 @@ layout: post
 category : life
 tags : [life,chicago]
 ---
-{% include JB/setup %}
-
 
 My time  in Chicago is coming to an end for now, i've been here for a few months and I'm really thankful for this experience, especially for the friends i leave here that I'm sure will see in the future. 
 

@@ -5,7 +5,6 @@ category : Software
 tags : [knockoutjs,software,javascript]
 published: true
 ---
-{% include JB/setup %}
 
 [Link to GitHub repository](https://github.com/hugozap/knockoutjs-date-bindings)
 

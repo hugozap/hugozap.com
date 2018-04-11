@@ -5,7 +5,6 @@ category : software
 tags : [d3,svg,graphics]
 published: true
 ---
-{% include JB/setup %}
 
 Inspired by Tokyo, I've been experimenting with different techniques to simulate a city and its people. There's been a lot of challenges and it has 
 been a great excercise. 

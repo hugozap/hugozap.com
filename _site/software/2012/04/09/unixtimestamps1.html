@@ -1,5 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Sending and receiving dates from android/java/dotnet the easy way | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Sending and receiving dates from android/java/dotnet the easy way" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The problem" />
+<meta property="og:description" content="The problem" />
+<link rel="canonical" href="http://localhost:4000/software/2012/04/09/unixtimestamps1.html" />
+<meta property="og:url" content="http://localhost:4000/software/2012/04/09/unixtimestamps1.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-04-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"The problem","@type":"BlogPosting","url":"http://localhost:4000/software/2012/04/09/unixtimestamps1.html","headline":"Sending and receiving dates from android/java/dotnet the easy way","dateModified":"2012-04-09T00:00:00-05:00","datePublished":"2012-04-09T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/software/2012/04/09/unixtimestamps1.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body class="w-100 sans-serif bg-white"><header class="bg-black-90  fixed top-0 w-100 ph3 pv3 pv4-ns ph4-m ph5-l z-2"><nav class="f6 fw6 ttu tracked tl tr-ns relative tc">
+    <a class="relative block absolute-ns dib-ns left-0 link dim white " href="/">Your awesome title</a><a class="link dim white dib mr3" href="/about/" title="About">About</a></nav></header>
 
-<h2 id="the-problem">The problem</h2>
+<main class="ph3 pv5 pa5-ns mt3 mt5-ns" aria-label="Content">
+        <article class="measure-wide lh-copy" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <h1 class="f3 f2-m f1-l" itemprop="name headline">Sending and receiving dates from android/java/dotnet the easy way</h1>
+    <p class="">
+      <time class="" datetime="2012-04-09T00:00:00-05:00" itemprop="datePublished">Apr 9, 2012
+      </time></p>
+  </header>
+  <p class="lh-copy">
+    <h2 id="the-problem">The problem</h2>
 
 <p>Date serializing is not as easy as it sounds. If you are using JSON is possible that you will encounter problems with formats, time zone representation, etc.</p>
 
@@ -9,10 +40,10 @@
 
 <h2 id="differences-in-parsers-and-formatters">Differences in parsers and formatters</h2>
 
-<p>I&#8217;m working on  a mobile application (Android) that sends and receives data from a .NET Backend.
+<p>I’m working on  a mobile application (Android) that sends and receives data from a .NET Backend.
 At first i chose ISO Format to send and receive dates. Everything is stored as UTC and only converted to local time to display information to the user.</p>
 
-<p>One problem i faced was that one part was sending the Z character and the other part didn&#8217;t understand it. I checked the format strings and everything appeared ok.
+<p>One problem i faced was that one part was sending the Z character and the other part didn’t understand it. I checked the format strings and everything appeared ok.
 After a little googling, i noticed that some APIs used unixtime format and i realized that this is the simplest way to handle it. And i like simplicity.</p>
 
 <h3 id="working-with-unix-time-stamps-in-android-java">Working with unix time stamps in android (java)</h3>
@@ -35,7 +66,7 @@ Dates will be sent and received as long values (no json hacks) and i had to have
 		<span class="k">return</span> <span class="n">date</span><span class="o">;</span>
 	<span class="o">}</span></code></pre></figure>
 
-<p>With Gson one can create custom serializers/deserializers, that&#8217;s what we want to send and receive the date as a number:</p>
+<p>With Gson one can create custom serializers/deserializers, that’s what we want to send and receive the date as a number:</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnixTimeSerializer</span> <span class="kd">implements</span> <span class="n">JsonSerializer</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span> <span class="o">{</span>
 	<span class="nd">@Override</span>
@@ -72,3 +103,13 @@ Dates will be sent and received as long values (no json hacks) and i had to have
 				</code></pre></figure>
 
 <p>The json received from server contains the unix timestamp, however gson deserializes it into the class i select and populates the corresponding date fields.</p>
+
+  </p>
+  <a class="" href="/software/2012/04/09/unixtimestamps1.html" hidden></a>
+
+</article>
+
+
+    </main></body>
+
+</html>

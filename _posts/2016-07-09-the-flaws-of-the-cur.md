@@ -5,5 +5,4 @@ category : software
 tags : [web,css,tachyons]
 published: false
 ---
-{% include JB/setup %}
         

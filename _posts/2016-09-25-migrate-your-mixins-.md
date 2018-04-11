@@ -5,7 +5,6 @@ category : software
 tags : [react,fp,web,javascript]
 published: true
 ---
-{% include JB/setup %}
 
 Note: Although this was written with react in mind, it also applies to similar concepts like "behaviors" in Polymer. However implementation may be different and not that easy with other libraries.
 

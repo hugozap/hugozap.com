@@ -5,7 +5,6 @@ category : development
 tags : [polymer]
 published: true
 ---
-{% include JB/setup %}
 
 In Polymer sometimes you need to access the data item bound
 to a DOM element inside a dom-repeat template. A common use case is when the user

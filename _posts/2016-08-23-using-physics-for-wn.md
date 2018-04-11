@@ -5,7 +5,6 @@ category : UI
 tags : [web,animation,javascript,ui-explorations]
 published: true
 ---
-{% include JB/setup %}
 
 I've been experimenting with using spring physics for UI animation and it makes a lot of sense. By using a physics model to move things we manage to get effects that look more natural. They just feel right compared to artificial non natural easings.
 

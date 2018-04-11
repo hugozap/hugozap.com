@@ -5,7 +5,6 @@ category : software
 tags : [css,frontend,web]
 published: false
 ---
-{% include JB/setup %}
 
 Quienes hayan trabajado en proyectos no triviales que usen CSS, con seguridad habrán notado que con el tiempo las hojas de estilo inevitablemente se salen de control. Estos son algunos de los síntomas del problema. Cuáles pueden identificar en sus proyectos? :
 

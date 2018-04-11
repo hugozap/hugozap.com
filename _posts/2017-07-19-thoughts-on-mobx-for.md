@@ -5,7 +5,6 @@ category : software
 tags : [mobx,react,frontend]
 published: true
 ---
-{% include JB/setup %}
         
 [WIP]
 

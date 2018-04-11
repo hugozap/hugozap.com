@@ -5,7 +5,6 @@ category : software
 tags : [react,components,ui,ux]
 published: true
 ---
-{% include JB/setup %}
 
 A few days ago, I published [react-rotary-knob](https://github.com/hugozap/react-rotary-knob). 
 

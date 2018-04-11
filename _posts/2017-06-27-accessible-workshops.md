@@ -5,7 +5,6 @@ category : software
 tags : [accessibility,talks]
 published: true
 ---
-{% include JB/setup %}
         
  Last month I conducted a workshop for programming students with limited hearing. I have given a lot of talks but felt  anxious about this one. I  wanted them to learn and be inspired by the workshop, so I prepared a lot starting 3 weeks before.
 

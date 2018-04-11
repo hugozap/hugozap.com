@@ -5,7 +5,6 @@ category : Life
 tags : [life,creative]
 published: false
 ---
-{% include JB/setup %}
 
 I just watched this video of [Zina Nicole Lahr](http://normallyodd.com/) . She had a wonderful spirit and creative energy, from art to little robots, it's hard to classify her creations in one category.
 

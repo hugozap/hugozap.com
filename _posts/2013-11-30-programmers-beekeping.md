@@ -5,7 +5,6 @@ category : Life
 tags : [life]
 published: true
 ---
-{% include JB/setup %}
 
 This is a fragment of an interesting read that appeared the other day
 on /r/programming.

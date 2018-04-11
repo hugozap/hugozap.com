@@ -5,7 +5,6 @@ category : software
 tags : [javascript, frontend, knockoutjs]
 published: true
 ---
-{% include JB/setup %}
 
 I'm working on my second project using [KnockoutJS](www.knockoutjs.com) and it has saved me a lot of time with the benefit of keeping my clientside code organized. I have enjoyed frontend development since i learned javascript and jquery and knockoutjs makes it more fun to build Web applications. The reason is that i can focus on the client logic and forget about dealing with dom elements updates.
 

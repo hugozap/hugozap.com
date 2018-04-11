@@ -4,7 +4,6 @@ layout: post
 category : software
 tags : [learning_log,git]
 ---
-{% include JB/setup %}
 
 I needed to create multiple ssh keys with github/ bitbucket accounts.
 

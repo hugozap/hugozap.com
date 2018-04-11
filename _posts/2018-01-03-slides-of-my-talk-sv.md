@@ -5,7 +5,6 @@ category : software
 tags : [software,react,frontend,svg]
 published: true
 ---
-{% include JB/setup %}
 
 A few weeks ago I gave a talk in the ReactJS Tokyo meetup. When I arrived to Japan a few months ago one of my goals was to contribute in some way to the local JavaScript community, so I searched for conferences and meetups and found ReactJS Tokyo. After contacting the organizers and meeting with one of them, things were arranged and I was one of the speakers. 
 

@@ -5,7 +5,6 @@ category : software
 tags : [dotnet, java, android, mobile, date serialization]
 published: true
 ---
-{% include JB/setup %}
 
 ## The problem
 

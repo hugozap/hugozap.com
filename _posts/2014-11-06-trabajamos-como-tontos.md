@@ -4,8 +4,6 @@ layout: post
 category : escritos
 tags : [español,software,trabajo inteligente]
 ---
-{% include JB/setup %}
-
 
 ¿Porqué seguimos trabajando 40 horas ( o más) a la semana?
 

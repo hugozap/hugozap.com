@@ -5,7 +5,6 @@ category : development
 tags : [android, build]
 published: true
 ---
-{% include JB/setup %}
 
 
 For the build process of a medium size project i'm working on, i need to generate the .apk and upload it to an ftp, i was doing this manually everytime i made changes, this is not optimal so i decided to create a bash script to automate the process.

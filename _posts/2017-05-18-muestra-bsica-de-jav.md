@@ -5,7 +5,6 @@ category : software
 tags : [JavaScript,español]
 published: true
 ---
-{% include JB/setup %}
 
 [http://hugozap.com/guia-principiantes-js/](http://hugozap.com/guia-principiantes-js/)
  

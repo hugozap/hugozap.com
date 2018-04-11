@@ -5,7 +5,6 @@ category : software
 tags : [css,web,tools]
 published: true
 ---
-{% include JB/setup %}
 
 Sometimes you just need to create presentation slides quickly. Maybe you don't want to use any tool or package. Just a simple html file without JavaScript
 

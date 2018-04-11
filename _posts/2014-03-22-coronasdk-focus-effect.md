@@ -4,7 +4,6 @@ layout: post
 category : gamedev
 tags : [coronasdk,gamedev,software,graphics]
 ---
-{% include JB/setup %}
 
 A simple effect created with CoronaSDK. This could be useful
 for sniper type games or to draw attention to certain region of

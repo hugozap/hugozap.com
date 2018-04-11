@@ -5,7 +5,6 @@ category : Life
 tags : [software,educational apps,apps,development,design]
 published: true
 ---
-{% include JB/setup %}
 
 I'm working on a mini-game that will be part of a kid app for Ipad
 

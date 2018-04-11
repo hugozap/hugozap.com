@@ -5,7 +5,6 @@ category : software
 tags : [streams]
 published: true
 ---
-{% include JB/setup %}
 
 [Check the repository on GitHub](https://github.com/hugozap/basic-realtime-boilerplate)
 

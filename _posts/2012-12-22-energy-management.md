@@ -5,7 +5,6 @@ category : improvement
 tags : [improvement, productivity]
 published: false
 ---
-{% include JB/setup %}
 
 decisiones pequeñas
 rutina diaria

@@ -4,8 +4,6 @@ layout: post
 category : software
 tags : [linux]
 ---
-{% include JB/setup %}
-
 
 I wanted to setup a linux server so it will download torrents to an external drive. I tested this on Mint, but it should work on Ubuntu and other distributions.
 

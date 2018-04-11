@@ -5,7 +5,6 @@ category : software
 tags : [graphics,d3,art]
 published: true
 ---
-{% include JB/setup %}
 
 
 <iframe style="border:solid 1px rgb(30,30,30)" src="/demos/voronoi_butterfly.html" width="100%" height="500px">...</iframe>

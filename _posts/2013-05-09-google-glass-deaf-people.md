@@ -5,7 +5,6 @@ category : development
 tags : [technology,future]
 published: true
 ---
-{% include JB/setup %}
 
 # A simple yet very useful Google glass application for deaf people.
 

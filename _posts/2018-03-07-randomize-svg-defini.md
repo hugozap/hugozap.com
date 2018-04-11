@@ -5,7 +5,6 @@ category : software
 tags : [software,svg,tools]
 published: true
 ---
-{% include JB/setup %}
 
 When using inline SVG's a duplicated definition element id's will cause problems as the browser will use the first SVG definition with the id.
 

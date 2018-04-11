@@ -5,7 +5,6 @@ category : software
 tags : [react,ui,web]
 published: true
 ---
-{% include JB/setup %}
 
 There's been a lot of discussion regarding the usage of Web Components and their relation with frameworks. As usual in the tech community, people (myself included) sometimes attach their identities to some particular technology and that prevents a healthy discussion.
 

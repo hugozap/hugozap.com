@@ -5,7 +5,6 @@ category : development
 tags : [nodejs, libraries]
 published: true
 ---
-{% include JB/setup %}
 
 In my quest to learn nodejs i like to navigate github and randomly looking at popular nodejs repositories to see it's tests and what problem it solves.
 

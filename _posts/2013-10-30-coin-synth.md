@@ -5,7 +5,6 @@ category : software
 tags : [node, art, projects]
 published: true
 ---
-{% include JB/setup %}
 
 Analog interfaces are cool, i can't explain why but touching things with
 different textures is cooler than always using a touchscreen, at least 

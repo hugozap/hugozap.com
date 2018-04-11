@@ -5,7 +5,6 @@ category : Software
 tags : [talks,javascript]
 published: true
 ---
-{% include JB/setup %}
 
 Next Saturday i will be presenting about a topic i'm very interested in. Streams in JavaScript.
 

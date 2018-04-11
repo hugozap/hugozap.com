@@ -5,7 +5,6 @@ category : software
 tags : [node, utilities, unix, streams]
 published: true
 ---
-{% include JB/setup %}
 
 I use different user sessions on the same computer to separate
 personal / work environments. When I need to share some file or text

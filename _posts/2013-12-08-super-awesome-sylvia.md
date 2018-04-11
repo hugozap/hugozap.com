@@ -5,7 +5,6 @@ category : Creativity
 tags : [education,creative]
 published: true
 ---
-{% include JB/setup %}
 
 Today i discovered [Sylvia's super awesome maker show](http://sylviashow.com/) and it's fantastic!.
 

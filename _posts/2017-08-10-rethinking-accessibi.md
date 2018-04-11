@@ -5,7 +5,6 @@ category : software
 tags : [web,accessibility]
 published: true
 ---
-{% include JB/setup %}
 
 [Work in Progress]
         

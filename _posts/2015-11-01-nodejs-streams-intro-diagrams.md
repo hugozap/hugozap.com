@@ -5,8 +5,6 @@ category : development
 tags : [node, streams]
 published: true
 ---
-{% include JB/setup %}
-
 
 ![intro]({{ site.url }}/img/streamsslides/intro.png)
 

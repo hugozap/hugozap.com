@@ -5,7 +5,6 @@ tags : [web, frontend]
 title: 5 Shortcuts that you must absolutely know in Eclipse and Visual Studio
 published: true
 ---
-{% include JB/setup %}
 
 
 There are many shortcuts to learn but if you want to improve your productivity you must be able to quickly do the following tasks:

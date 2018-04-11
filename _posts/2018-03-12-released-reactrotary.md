@@ -5,7 +5,6 @@ category : software
 tags : [react,ui,uix,products]
 published: true
 ---
-{% include JB/setup %}
 
 ![rotary knob skins](/img/react-rotary-knob-skins-preview590x300.jpg)
 

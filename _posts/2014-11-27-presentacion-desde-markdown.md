@@ -4,8 +4,6 @@ category : random
 tags : [unix,markdown]
 title: Markdown para presentaciones.
 ---
-{% include JB/setup %}
-
 
 Una herramienta para generar presentaciones a partir de archivos de markdown:
 

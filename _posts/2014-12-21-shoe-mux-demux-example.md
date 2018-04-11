@@ -5,7 +5,6 @@ category : Software
 tags : [javascript]
 published: true
 ---
-{% include JB/setup %}
 
 In a realtime app it's common to have multiple data streams coming from the server. The mechanism to handle the different connections could include among others:
 

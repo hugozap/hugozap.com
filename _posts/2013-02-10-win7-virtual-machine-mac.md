@@ -5,7 +5,6 @@ category : development
 tags : [android, build]
 published: true
 ---
-{% include JB/setup %}
 
 I'm very happy developing with my MacBook Air, even for heavy tasks like running the android emulator it works really well, i guess the solid state disk has a lot to do with it, i have a Windows 7 virtual machine with all the settings for .NET development, i wanted to try it in my mac .
 

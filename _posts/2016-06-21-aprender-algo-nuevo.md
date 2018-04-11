@@ -5,7 +5,6 @@ category : learning
 tags : [learning,life,mindset]
 published: true
 ---
-{% include JB/setup %}
 
 ### Introducción
 

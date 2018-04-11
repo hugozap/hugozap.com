@@ -5,7 +5,6 @@ category : internet
 tags : [creation]
 published: true
 ---
-{% include JB/setup %}
 
 I really liked the Amber Case talk at Realtime Conf 2013. She made me think about the ownership of my data but not in the legal way, but more about the good feeling it brings to know that we own and control our content.
 

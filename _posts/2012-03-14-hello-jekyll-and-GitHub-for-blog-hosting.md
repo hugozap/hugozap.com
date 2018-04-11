@@ -3,7 +3,6 @@ layout: post
 category : random
 tags : [git]
 ---
-{% include JB/setup %}
 
 
 I was looking for alternatives to wordpress blogs, because although i like wordpress, i don't like to waste time upgrading or making backups for my blog, i found the article [Blogging like a hacker](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html) and really like the concept of using the console ,a text editor and Git to manage my blog without having to install databases or configure webservers. Github makes this possible.

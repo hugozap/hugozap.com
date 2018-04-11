@@ -5,7 +5,6 @@ category : software
 tags : [web,css,tachyons]
 published: true
 ---
-{% include JB/setup %}
 
 
 ## What's functional CSS?

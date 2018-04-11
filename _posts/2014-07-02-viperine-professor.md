@@ -5,7 +5,6 @@ category : gamedev
 tags : [games, art, projects]
 published: true
 ---
-{% include JB/setup %}
 
 
 Finishing the villain of my game, he is called "the viperine professor"

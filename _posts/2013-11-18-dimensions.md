@@ -5,7 +5,6 @@ category : Life
 tags : [life]
 published: true
 ---
-{% include JB/setup %}
 
 Go home. You're young.
 And still have much to unlearn.

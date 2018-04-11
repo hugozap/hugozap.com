@@ -5,7 +5,6 @@ category : Life
 tags : [software,educational apps,apps,development,design]
 published: true
 ---
-{% include JB/setup %}
 
 
 There is a lot of opportunities to use mobile for rich interactive stories,
