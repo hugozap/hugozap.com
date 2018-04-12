@@ -3,23 +3,23 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>Streams concepts in Node (diagrams). | Your awesome title</title>
+<title>Streams concepts in Node (diagrams). | hugozap Hugo Zapata</title>
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Streams concepts in Node (diagrams)." />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://localhost:4000/development/2015/11/01/nodejs-streams-intro-diagrams.html" />
-<meta property="og:url" content="http://localhost:4000/development/2015/11/01/nodejs-streams-intro-diagrams.html" />
-<meta property="og:site_name" content="Your awesome title" />
+<meta name="description" content="Hugo Zapata personal website." />
+<meta property="og:description" content="Hugo Zapata personal website." />
+<link rel="canonical" href="https://hugozap.com/development/2015/11/01/nodejs-streams-intro-diagrams.html" />
+<meta property="og:url" content="https://hugozap.com/development/2015/11/01/nodejs-streams-intro-diagrams.html" />
+<meta property="og:site_name" content="hugozap Hugo Zapata" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2015-11-01T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@type":"BlogPosting","url":"http://localhost:4000/development/2015/11/01/nodejs-streams-intro-diagrams.html","headline":"Streams concepts in Node (diagrams).","dateModified":"2015-11-01T00:00:00-05:00","datePublished":"2015-11-01T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/development/2015/11/01/nodejs-streams-intro-diagrams.html"},"@context":"http://schema.org"}</script>
+{"description":"Hugo Zapata personal website.","@type":"BlogPosting","url":"https://hugozap.com/development/2015/11/01/nodejs-streams-intro-diagrams.html","headline":"Streams concepts in Node (diagrams).","dateModified":"2015-11-01T00:00:00-05:00","datePublished":"2015-11-01T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://hugozap.com/development/2015/11/01/nodejs-streams-intro-diagrams.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://hugozap.com/feed.xml" title="hugozap | Hugo Zapata" /></head>
 <body class="w-100 sans-serif bg-white"><header class="bg-black-90  fixed top-0 w-100 ph3 pv3 pv4-ns ph4-m ph5-l z-2"><nav class="f6 fw6 ttu tracked tl tr-ns relative tc">
-    <a class="relative block absolute-ns dib-ns left-0 link dim white " href="/">Your awesome title</a><a class="link dim white dib mr3" href="/about/" title="About">About</a></nav></header>
+    <a class="relative block absolute-ns dib-ns left-0 link dim white " href="/">hugozap | Hugo Zapata</a><a class="link dim white dib mr3" href="/about/" title="About">About</a></nav></header>
 
 <main class="ph3 pv5 pa5-ns mt3 mt5-ns" aria-label="Content">
         <article class="measure-wide lh-copy" itemscope itemtype="http://schema.org/BlogPosting">
@@ -30,7 +30,7 @@
       </time></p>
   </header>
   <p class="lh-copy">
-    <p><img src="http://localhost:4000/img/streamsslides/intro.png" alt="intro" /></p>
+    <p><img src="https://hugozap.com/img/streamsslides/intro.png" alt="intro" /></p>
 
 <p>In 2014 I presented a talk called “The Power of Streams in JS” for the BogotaJS meetup group.</p>
 
@@ -50,25 +50,25 @@
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/readable.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/readable.png" alt="" /></p>
 
 <p>Readable streams emit data generated from a data source</p>
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/writeable.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/writeable.png" alt="" /></p>
 
 <p>Writable streams are used to write chunks to a data source</p>
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/transform.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/transform.png" alt="" /></p>
 
 <p>Transform streams read and process chunks of data and emit them</p>
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/duplex.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/duplex.png" alt="" /></p>
 
 <p>Duplex Streams have two “modes” they can act as writtable streams by receiving chunks and writing them to some datasource, and they can emit chunks of data read from another datasource.</p>
 
@@ -76,31 +76,31 @@
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/concat.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/concat.png" alt="" /></p>
 
 <p>Concat streams read all the input chunks and create one  grouped chunk of data (e.g from a chunk of words concatenate into a String)</p>
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/filter.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/filter.png" alt="" /></p>
 
 <p>Filter streams work similar to .filter function for arrays. The only chunks that “pass” are the ones who satisfay some condition.</p>
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/split.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/split.png" alt="" /></p>
 
 <p>Split streams split a chunk of data using some separator.</p>
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/join.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/join.png" alt="" /></p>
 
 <p>A Join stream intersperse stream chunks with separators</p>
 
 <hr />
 
-<p><img src="http://localhost:4000/img/streamsslides/linetoobject.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/linetoobject.png" alt="" /></p>
 
 <p>With trough/through2 you can easily create transform streams. In this example the stream receives an array (each chunk is an array) and transform it into a JSON object.</p>
 
@@ -112,7 +112,7 @@
 
 <p>In the diagram a sample websocket using the Shoe package is used as the ‘channel’ that will transport the data chunks from diverse streams.</p>
 
-<p><img src="http://localhost:4000/img/streamsslides/muxdemux.png" alt="" /></p>
+<p><img src="https://hugozap.com/img/streamsslides/muxdemux.png" alt="" /></p>
 
 
   </p>
