@@ -22,6 +22,8 @@ This component is the result of exploring different UI options to improve usabil
 - Set a minimum distance to avoid "jumps" when dragging.
 - Allow custom SVG skins thanks to [react-svgmt](https://github.com/hugozap/react-svgmt)
 
+[Custom skins demo](https://hugozap.github.io/react-rotary-knob-custom-skins-demo/)
+
 
 <a href="https://codesandbox.io/s/xo0z2kkqq">
   <img alt="Edit xo0z2kkqq" src="https://codesandbox.io/static/img/play-codesandbox.svg">
