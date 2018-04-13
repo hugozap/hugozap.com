@@ -6,7 +6,7 @@ tags : [node, streams]
 published: true
 ---
 
-![intro]({{ site.url }}/img/streamsslides/intro.png)
+![intro](/img/streamsslides/intro.png)
 
 In 2014 I presented a talk called "The Power of Streams in JS" for the BogotaJS meetup group.
 
@@ -28,28 +28,28 @@ Streams in node are great, quoting Dominic Tarr:
 ---
 
 
-![]({{ site.url }}/img/streamsslides/readable.png)
+![](/img/streamsslides/readable.png)
 
 Readable streams emit data generated from a data source
 
 ---
 
 
-![]({{ site.url }}/img/streamsslides/writeable.png)
+![](/img/streamsslides/writeable.png)
 
 Writable streams are used to write chunks to a data source
 
 ---
 
 
-![]({{ site.url }}/img/streamsslides/transform.png)
+![](/img/streamsslides/transform.png)
 
 Transform streams read and process chunks of data and emit them
 
 ---
 
 
-![]({{ site.url }}/img/streamsslides/duplex.png)
+![](/img/streamsslides/duplex.png)
 
 Duplex Streams have two "modes" they can act as writtable streams by receiving chunks and writing them to some datasource, and they can emit chunks of data read from another datasource. 
 
@@ -59,7 +59,7 @@ input and output are independent of each other.
 
 
 
-![]({{ site.url }}/img/streamsslides/concat.png)
+![](/img/streamsslides/concat.png)
 
 Concat streams read all the input chunks and create one  grouped chunk of data (e.g from a chunk of words concatenate into a String)
 
@@ -67,14 +67,14 @@ Concat streams read all the input chunks and create one  grouped chunk of data (
 
 
 
-![]({{ site.url }}/img/streamsslides/filter.png)
+![](/img/streamsslides/filter.png)
 
 Filter streams work similar to .filter function for arrays. The only chunks that "pass" are the ones who satisfay some condition.
 
 ---
 
 
-![]({{ site.url }}/img/streamsslides/split.png)
+![](/img/streamsslides/split.png)
 
 Split streams split a chunk of data using some separator.
 
@@ -82,7 +82,7 @@ Split streams split a chunk of data using some separator.
 
 
 
-![]({{ site.url }}/img/streamsslides/join.png)
+![](/img/streamsslides/join.png)
 
 A Join stream intersperse stream chunks with separators
 
@@ -91,7 +91,7 @@ A Join stream intersperse stream chunks with separators
 
 
 
-![]({{ site.url }}/img/streamsslides/linetoobject.png)
+![](/img/streamsslides/linetoobject.png)
 
 With trough/through2 you can easily create transform streams. In this example the stream receives an array (each chunk is an array) and transform it into a JSON object.
 
@@ -104,7 +104,7 @@ Mux Demux is a technique that allows sending the data chunks of multiple (and di
 
 In the diagram a sample websocket using the Shoe package is used as the 'channel' that will transport the data chunks from diverse streams.
 
-![]({{ site.url }}/img/streamsslides/muxdemux.png)
+![](/img/streamsslides/muxdemux.png)
 
 
 
