@@ -8,6 +8,8 @@ summary: 'Assessment editor and viewer for the e-learning portal GcfLearFree.org
 images:
     - 'assets/projects/gcf-assessment/demo.gif'
     - 'assets/projects/gcf-assessment/assessment.png'
+date: 2017-01-09
+
 ---
 
 This project was created for [GCFLearnFree.org](https://gcflearnfree.org) foundation.

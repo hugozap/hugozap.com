@@ -8,6 +8,7 @@ summary: 'A rotary knob with precision features for React'
 description: 'react-rotary-knob is an skinnable knob component that supports precision mode, custom skins and other features. '
 images:
     - 'assets/projects/knob-basic2.gif'
+date: 2018-01-09
 
 ---
 
