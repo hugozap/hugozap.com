@@ -1,6 +1,6 @@
 ---
 layout: project
-title: 'Animate camera with springs'
+title: 'Camera animation with springs'
 subtitle: 'Using spring physics to animate camera.'
 largeBackground: 'assets/projects/camera_springs/camera.png'
 thumbnail: 'assets/projects/camera_springs/demo.gif'

@@ -1,7 +1,7 @@
 ---
 layout: project
 title: 'Voronoi Butterfly'
-subtitle: ''
+subtitle: '2D experiments'
 largeBackground: 'assets/projects/voronoi-butterfly/demo.gif'
 thumbnail: 'assets/projects/voronoi-butterfly/demo.gif'
 summary: '2D experiments'

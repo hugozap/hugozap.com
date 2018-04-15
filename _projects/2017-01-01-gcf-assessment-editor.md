@@ -1,7 +1,7 @@
 ---
 layout: project
-title: 'Quiz editor and viewer for GCFLearnFree.org '
-subtitle: 'Crated using Polymer 1.0'
+title: 'Quiz engine for GCFLearnFree.org '
+subtitle: 'Editor and viewer'
 largeBackground:
 thumbnail: 'assets/projects/gcf-assessment/assessment.png'
 summary: 'Assessment editor and viewer for the e-learning portal GcfLearFree.org'

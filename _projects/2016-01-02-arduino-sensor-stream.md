@@ -1,6 +1,6 @@
 ---
 layout: project
-title: 'arduino-distance-sensor-stream (NodeJS)'
+title: 'Arduino distance stream (NodeJS)'
 subtitle: 'Get sensor data as node stream'
 thumbnail:
 summary:  'Controlling the camera direction movement using react-motion. The scene was created using a-frame and react'
