@@ -2,7 +2,7 @@
 layout: project
 title: 'KnockoutJS datetime bindings'
 subtitle: ''
-largeBackground:
+largeBackground: 'assets/projects/knockout-date-bindings/date.png'
 thumbnail: 'assets/projects/knockout-date-bindings/date.png'
 description: 'A date/time bindings for the knockoutjs library'
 summary: 'Date and time bindings for knockoutJS'

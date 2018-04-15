@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project
 title: 'Blur effect'
 subtitle: 'Created using LUA and CoronaSDK'
 largeBackground:

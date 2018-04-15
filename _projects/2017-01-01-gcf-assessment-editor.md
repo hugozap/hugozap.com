@@ -4,13 +4,13 @@ title: 'Quiz editor and viewer for GCFLearnFree.org '
 subtitle: 'Crated using Polymer 1.0'
 largeBackground:
 thumbnail: 'assets/projects/gcf-assessment/assessment.png'
-summary: 'Controlling the camera direction movement using react-motion. The scene was created using a-frame and react'
+summary: 'Assessment editor and viewer for the e-learning portal GcfLearFree.org'
 images:
     - 'assets/projects/gcf-assessment/demo.gif'
     - 'assets/projects/gcf-assessment/assessment.png'
 ---
 
-This project was created for [GCFLearnFree.org] foundation.
+This project was created for [GCFLearnFree.org](https://gcflearnfree.org) foundation.
 It comprises the quiz engine, editor and viewer. It was created
 using web components with Polymer 1.0 in 2016. The backend was
 created using NodeJS.

@@ -1,6 +1,6 @@
 ---
 layout: project
-title: 'arduino-distance-sensor-stream'
+title: 'arduino-distance-sensor-stream (NodeJS)'
 subtitle: 'Get sensor data as node stream'
 thumbnail:
 summary:  'Controlling the camera direction movement using react-motion. The scene was created using a-frame and react'
@@ -9,6 +9,5 @@ github: 'https://github.com/hugozap/arduino-distance-sensor-stream'
 
 ---
 
-[Source](https://github.com/hugozap/react-aframe-demo1)
-<iframe src="https://hugozap.neocities.org/x99/" frameborder="0"></iframe>
+[Source](https://github.com/hugozap/arduino-distance-sensor-stream)
 
