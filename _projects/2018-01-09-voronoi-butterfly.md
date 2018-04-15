@@ -4,7 +4,7 @@ title: 'Voronoi Butterfly'
 subtitle: ''
 largeBackground: 'assets/projects/voronoi-butterfly/demo.gif'
 thumbnail: 'assets/projects/voronoi-butterfly/demo.gif'
-summary: 
+summary: '2D experiments'
 date: 2018-01-09
 ---
 
